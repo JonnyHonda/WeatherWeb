@@ -12,13 +12,13 @@ if(isset($_GET['interval'])){
 $db_found = mysql_select_db("Weather");
      $myquery = "SELECT * FROM observations WHERE date >= now() - INTERVAL 5 HOUR ORDER BY id DESC";
 $query = mysql_query($myquery);
-
+$file = "";
 while($r = mysql_fetch_array($query)) {
 	$datetime = $r['date'];
 	$phpdate = strtotime( $datetime);
 	$observationDate = date('d/m/Y', $phpdate );
 	$observationTime = date('H:i', $phpdate );   
-	$file = "<tr>\n";
+	$file .= "<tr>\n";
 	$file .= "\t<td>$observationDate</td>\n";
 	$file .=  "\t<td>$observationTime</td>\n";
 	$file .=  "\t<td>{$r['air_temp']}</td>\n";
