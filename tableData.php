@@ -18,12 +18,12 @@ while($r = mysql_fetch_array($query)) {
 	$phpdate = strtotime( $datetime);
 	$observationDate = date('d/m/Y', $phpdate );
 	$observationTime = date('H:i', $phpdate );   
-	echo "<tr>\n";
-	echo "\t<td>$observationDate</td>\n";
-	echo "\t<td>$observationTime</td>\n";
-	echo "\t<td>{$r['air_temp']}</td>\n";
-	echo "\t<td>{$r['grass_temp']}</td>\n";
-	echo "</tr>\n";
+	$file = "<tr>\n";
+	$file .= "\t<td>$observationDate</td>\n";
+	$file .=  "\t<td>$observationTime</td>\n";
+	$file .=  "\t<td>{$r['air_temp']}</td>\n";
+	$file .=  "\t<td>{$r['grass_temp']}</td>\n";
+	$file .=  "</tr>\n";
 }
-
+file_put_contents('tableData.inc.html', $file);
 ?>
