@@ -676,7 +676,7 @@
                 <div class="col-lg-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bell fa-fw"></i> Notifications Panel
+                            <i class="fa fa-bell fa-fw"></i> Forecast
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
