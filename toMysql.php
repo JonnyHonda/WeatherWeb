@@ -47,7 +47,7 @@ $db_found = mysql_select_db("Weather");
 $myquery = "INSERT INTO station_data (`dateutc`, `windgustmph`, `tempf`, "
         . "`windspeedmph`, `baromin`, `rainin`, `dailyrainin`, `winddir`, "
         . "`softwaretype`, `key`, `dewptf`, `humidity`)"
-        . "values ($dateutc, $windgustmph, $tempf, $windspeedmph, $baromin,
-            $rainin, $dailyrainin, $winddir, $softwaretype, $key, $dewptf,$humidity)";
+        . "values (\"$dateutc\", \"$windgustmph\", \"$tempf\", \"$windspeedmph\", \"$baromin\",
+            \"$rainin\", \"$dailyrainin\", \"$winddir\", \"$softwaretype\", \"$key\", \"$dewptf\",\"$humidity\")";
 echo $myquery;
 $query = mysql_query($myquery);
