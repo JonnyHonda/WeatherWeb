@@ -1,6 +1,7 @@
 <?php
+include("config.php");
 //date_default_timezone_get ();
-$link = mysql_connect('sajb.co.uk', 'Tempestas', 'mRHY9BmlN4CrYUEYNhWV');
+$link = mysql_connect(SERVER, USER, PASSWORD);
 if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
