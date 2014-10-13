@@ -23,7 +23,7 @@ include ("sanitize.inc.php");
  */
 
 //date_default_timezone_get ();
-$link = mysql_connect('sajb.co.uk', 'Tempestas', 'mRHY9BmlN4CrYUEYNhWV');
+$link = mysql_connect('sajb.co.uk', 'Tempestas', 'lUM1uskEpAZTE68d0IW2');
 if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
