@@ -27,7 +27,7 @@ $link = mysql_connect('sajb.co.uk', 'Tempestas', 'lUM1uskEpAZTE68d0IW2');
 if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
-
+include("config.php");
  $dateutc = sanitize($_GET['dateutc'], SQL);
  $windgustmph = sanitize($_GET['windgustmph'], SQL);
  $tempf = sanitize($_GET['tempf'], SQL);
