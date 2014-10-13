@@ -2,8 +2,5 @@
 config.php
 barGraphData.json
 tableData.inc.html
-<<<<<<< HEAD
-=======
-config.php
 cache-zambretti-prediction.inc.html
->>>>>>> 9ad1299a2cff76ae61829696304f711e23b40673
+
