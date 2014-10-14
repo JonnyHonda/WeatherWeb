@@ -1,6 +1,7 @@
 <?php
 
 include ("sanitize.inc.php");
+include("config.php");
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -23,11 +24,11 @@ include ("sanitize.inc.php");
  */
 
 //date_default_timezone_get ();
-$link = mysql_connect('sajb.co.uk', 'Tempestas', 'lUM1uskEpAZTE68d0IW2');
+$link = mysql_connect(SERVER, USER, PASSWORD);
 if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
-include("config.php");
+
  $dateutc = sanitize($_GET['dateutc'], SQL);
  $windgustmph = sanitize($_GET['windgustmph'], SQL);
  $tempf = sanitize($_GET['tempf'], SQL);
