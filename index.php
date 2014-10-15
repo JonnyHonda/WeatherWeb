@@ -474,7 +474,10 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div id="morris-area-chart"></div>
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="flot-line-chart-multi"></div>
+                            </div>
+                            <!-- div id="morris-area-chart"></div -->
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -522,6 +525,16 @@
     <script src="js/plugins/morris/morris.min.js"></script>
     <script src="morris-data.js"></script>
 
+    
+
+    <!-- Flot Charts JavaScript -->
+    <script src="js/plugins/flot/excanvas.min.js"></script>
+    <script src="js/plugins/flot/jquery.flot.js"></script>
+    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
+    <script src="js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="flot-data.js"></script>
+    
     <!-- Custom Theme JavaScript -->
     <script src="js/sb-admin-2.js"></script>
 
