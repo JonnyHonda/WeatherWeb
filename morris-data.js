@@ -1,15 +1,17 @@
 $(function () {
 
 
-    $.getJSON("lineGraphData.json", function (jsonData) {
+    $.getJSON("cache-line-graph.json", function (jsonData) {
         Morris.Area({
             element: 'morris-area-chart',
             data: jsonData,
-            xkey: 'period',
-            ykeys: ['iphone', 'ipad', 'itouch'],
-            labels: ['iPhone', 'iPad', 'iPod Touch'],
+            xkey: 'date',
+            ykeys: ['soil_temp_10','soil_temp_30','soil_temp_100'],
+            labels: ['10cm', '30cm','1m'],
             pointSize: 2,
-            hideHover: 'auto',
+            hideHover: 'always',
+            behaveLikeLine: 'true',
+ //           fillOpacity: 0.3,
             resize: true
         });
     });
