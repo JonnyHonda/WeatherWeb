@@ -74,10 +74,10 @@
 	       }]
 		}
 
-        $.getJSON("getdata.php", function(json){
+        $.getJSON("cache-line-graph.json", function(json){
         	options.xAxis.categories = json['category'];
-        	options.series[0].name = json['name'];
-        	options.series[0].data = json['data'];
+        	options.series[0].name = json['0'];
+        	options.series[0].data = json['1'];
         	chart = new Highcharts.Chart(options);
 		});
 
