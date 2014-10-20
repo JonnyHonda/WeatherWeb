@@ -1,6 +1,6 @@
 $(function () {
 
-
+/*
     $.getJSON("cache-line-graph.json", function (jsonData) {
         Morris.Area({
             element: 'morris-area-chart',
@@ -15,8 +15,8 @@ $(function () {
             resize: true
         });
     });
-
-
+*/
+/*
     Morris.Donut({
         element: 'morris-donut-chart',
         data: [{
@@ -31,7 +31,7 @@ $(function () {
             }],
         resize: true
     });
-
+*/
     $.getJSON("barGraphData.json", function (jsonData) {
         Morris.Bar({
             element: 'morris-bar-chart',
