@@ -1,5 +1,5 @@
 
-var chart;
+//var chart;
 $(document).ready(function () {
     $.getJSON('cache-multi-line-graph.json', function (json) {
         chart = new Highcharts.StockChart({
