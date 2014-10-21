@@ -1,6 +1,3 @@
 /nbproject/private/
 config.php
-barGraphData.json
-tableData.inc.html
-cache-zambretti-prediction.inc.html
-
+/tasks/data/*
