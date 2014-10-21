@@ -11,13 +11,13 @@ if (!$link) {
 $db_found = mysql_select_db("Weather");
 
 $thisWeeksData = "select DAYNAME(date) as `day`, "
-        . "ROUND(AVG(air_temp),2) as `air_temp` from observations WHERE WEEK (date, 1) = "
+        . "ROUND(AVG(grass_temp),2) as `temp` from observations WHERE WEEK (date, 1) = "
         . "WEEK(current_date, 1) - 0  "
         . "GROUP BY DAYNAME(date) "
         . "ORDER BY WEEKDAY(date);";
 
 $lastWeeksData = "select DAYNAME(date) as `day`, "
-        . "ROUND(AVG(air_temp),2) as `air_temp` from observations WHERE WEEK (date, 1) = "
+        . "ROUND(AVG(grass_temp),2) as `temp` from observations WHERE WEEK (date, 1) = "
         . "WEEK(current_date, 1) - 1  "
         . "GROUP BY DAYNAME(date) "
         . "ORDER BY WEEKDAY(date);";  
@@ -32,7 +32,7 @@ if (!$result) {
 
 
 while($r = mysql_fetch_array($result)) {
-    $jsonarray['this_week'][] = (float)$r['air_temp'];
+    $jsonarray['this_week'][] = (float)$r['temp'];
 }
 
 
@@ -42,7 +42,7 @@ if (!$result) {
 }
 
 while($r = mysql_fetch_array($result)) { 
-    $jsonarray['last_week'][] = (float)$r['air_temp'];
+    $jsonarray['last_week'][] = (float)$r['temp'];
 }
 
 
