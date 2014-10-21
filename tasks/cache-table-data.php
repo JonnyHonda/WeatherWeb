@@ -1,5 +1,7 @@
 <?php
-include("config.php");
+$taskLocation =  realpath(dirname(__FILE__));
+chdir($taskLocation );
+include("../config.php");
 //date_default_timezone_get ();
 $link = mysql_connect(SERVER, USER, PASSWORD);
 if (!$link) {
@@ -22,5 +24,6 @@ while($r = mysql_fetch_array($query)) {
 	$file .=  "\t<td>{$r['grass_temp']}</td>\n";
 	$file .=  "</tr>\n";
 }
-file_put_contents('tableData.inc.html', $file);
+
+file_put_contents('data/cache-table-data.inc.html', $file);
 ?>

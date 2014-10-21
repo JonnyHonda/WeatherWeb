@@ -35,17 +35,19 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script-->
       
         <!-- jQuery Version 1.11.0 -->
         <script src="js/jquery-1.11.0.js"></script>
-        <script src="/highcharts/js/highstock.js"></script>
-        <!--script src="http://code.highcharts.com/highcharts.js"></script-->
-        <script src="http://code.highcharts.com/highcharts-more.js"></script>
-        <script src="http://code.highcharts.com/modules/data.js"></script>
-        <script src="http://code.highcharts.com/modules/exporting.js"></script>
-        <script src="highchartsdata.js"></script>
-        <script src="windrosedata.js"></script>
+        
+        <!-- Highcharts Javascripts -->
+        
+        <script src="highcharts/js/highstock.js"></script>
+        <!--script src="highcharts/js/highcharts.js"></script-->
+        <script src="highcharts/js/highcharts-more.js"></script>
+        <script src="highcharts/js/modules/data.js"></script>
+        <script src="highcharts/js/modules/exporting.js"></script>
+        <script src="chart-data-js/highchartsdata.js"></script>
+        <script src="chart-data-js/windrosedata.js"></script>
     </head>
 
     <body>
@@ -442,7 +444,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php include("tableData.inc.html"); ?>
+                                                    <?php include("tasks/data/cache-table-data.inc.html"); ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -496,7 +498,7 @@
                     <!-- /.col-lg-8 -->
                     <div class="col-lg-4">
                         <div class="panel panel-default">
-                            <?php include("cache-zambretti-prediction.inc.html"); ?>
+                            <?php include("tasks/data/cache-zambretti-prediction.inc.html"); ?>
                             <!-- /.panel-body -->
                         </div>
                         <!-- /.panel -->
@@ -747,7 +749,7 @@
         <!-- Morris Charts JavaScript -->
         <script src="js/plugins/morris/raphael.min.js"></script>
         <script src="js/plugins/morris/morris.min.js"></script>
-        <script src="morris-data.js"></script>
+        <script src="chart-data-js/morris-data.js"></script>
 
         <!-- Custom Theme JavaScript -->
         <script src="js/sb-admin-2.js"></script>
