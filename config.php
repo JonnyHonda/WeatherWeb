@@ -6,6 +6,6 @@ Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-define('SERVER', 'server');
-define('USER', 'user');
-define('PASSWORD', 'passwword');
+define('SERVER', 'sajb.co.uk');
+define('USER', 'Tempestas');
+define('PASSWORD', 'yyDnYgyiOeAaDPIrdlvW');

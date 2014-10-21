@@ -6,17 +6,15 @@
  * and open the template in the editor.
  */
 
-include("config.php");
+$taskLocation =  realpath(dirname(__FILE__));
+chdir($taskLocation );
+include("../config.php");
 //date_default_timezone_get ();
 $link = mysql_connect(SERVER, USER, PASSWORD);
 if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
-$interval = 1;
-//echo 'Connected successfully';
-if (isset($_GET['interval'])) {
-    $interval = $_GET['interval'];
-}
+
 $db_found = mysql_select_db("Weather");
 $myquery = 'SELECT DATE_FORMAT(date,"%Y-%m-%d %H:00:00") as `date`, 
 round(avg(air_temp),2) as air_temp, 
@@ -48,4 +46,4 @@ while ($r = mysql_fetch_array($query)) {
 }
 
 $file = json_encode($result);
-file_put_contents("cache-line-graph.json", $file);
+file_put_contents("data/cache-line-graph.json", $file);

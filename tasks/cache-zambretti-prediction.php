@@ -1,7 +1,8 @@
 <?php
-
-include 'zambretti.inc.php';
-include("config.php");
+$taskLocation =  realpath(dirname(__FILE__));
+chdir($taskLocation );
+include("../config.php");
+include '../zambretti.inc.php';
 
 $link = mysql_connect(SERVER, USER, PASSWORD);
 if (!$link) {
@@ -38,9 +39,9 @@ if ($millibars - $r['baromin'] > 0){
 }
 
 $output =  betel_cast($millibars, $month, $winddir, $trend , 1, 1050, 950);
-$file = file_get_contents("cache-zambretti-prediction.template.html");
+$file = file_get_contents("templates/cache-zambretti-prediction.template.html");
 $file = str_replace("[--image--]","{$output[1]}", $file);
 $file = str_replace("[--description--]","{$output[0]}", $file);
 $file = str_replace("[--date--]","$date", $file);
-file_put_contents("cache-zambretti-prediction.inc.html",$file);
+file_put_contents("data/cache-zambretti-prediction.inc.html",$file);
 

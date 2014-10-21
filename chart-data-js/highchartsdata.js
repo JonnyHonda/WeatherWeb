@@ -1,7 +1,7 @@
 
 //var chart;
 $(document).ready(function () {
-    $.getJSON('cache-multi-line-graph.json', function (json) {
+    $.getJSON('tasks/data/cache-multi-line-graph.json', function (json) {
         chart = new Highcharts.StockChart({
             chart: {
                 renderTo: 'garden-temperatures-multi-line-graph',
