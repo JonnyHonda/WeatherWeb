@@ -15,11 +15,11 @@ $(function () {
         },
 
         title: {
-            text: 'Wind rose for South Shore Met Station, Oregon'
+            text: ''
         },
 
         subtitle: {
-            text: 'Source: or.water.usgs.gov'
+            text: ''
         },
 
         pane: {
@@ -42,18 +42,18 @@ $(function () {
             endOnTick: false,
             showLastLabel: true,
             title: {
-                text: 'Frequency (%)'
+                text: ''
             },
             labels: {
                 formatter: function () {
-                    return this.value + '%';
+                    return this.value + '';
                 }
             },
             reversedStacks: false
         },
 
         tooltip: {
-            valueSuffix: '%'
+            valueSuffix: 'm/s'
         },
 
         plotOptions: {
