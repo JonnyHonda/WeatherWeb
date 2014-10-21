@@ -431,22 +431,7 @@
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="table-responsive">
-                                            <table class="table table-bordered table-hover table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th colspan="4">Today's Temperatures</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Date</th>
-                                                        <th>Time</th>
-                                                        <th>Grass</th>
-                                                        <th>Air</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
                                                     <?php include("tasks/data/cache-table-data.inc.html"); ?>
-                                                </tbody>
-                                            </table>
                                         </div>
                                         <!-- /.table-responsive -->
                                     </div>
