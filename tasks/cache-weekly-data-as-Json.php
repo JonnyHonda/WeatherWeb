@@ -15,6 +15,7 @@ $thisWeeksData = "select DAYNAME(date) as `day`, "
         . "WEEK(current_date, 1) - 0  "
         . "GROUP BY DAYNAME(date) "
         . "ORDER BY WEEKDAY(date);";
+
 $lastWeeksData = "select DAYNAME(date) as `day`, "
         . "ROUND(AVG(air_temp),2) as `air_temp` from observations WHERE WEEK (date, 1) = "
         . "WEEK(current_date, 1) - 1  "
