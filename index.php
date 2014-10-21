@@ -513,7 +513,7 @@
                             <!-- /.panel-body -->
                         </div>
                         <!-- /.panel -->
-                        <div class="panel-body">
+                        <div class="panel-body" style="display:none">
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="table-responsive">
