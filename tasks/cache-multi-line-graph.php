@@ -9,7 +9,7 @@ if (!$link) {
 }
 
 $db_found = mysql_select_db("Weather");
-     $myquery = "SELECT * FROM observations WHERE date >= now() - INTERVAL 1 HOUR ORDER BY id";
+     $myquery = "SELECT * FROM observations WHERE date >= now() - INTERVAL 6 MONTH ORDER BY id";
 $query = mysql_query($myquery);
 
 while($r = mysql_fetch_array($query)) {   
