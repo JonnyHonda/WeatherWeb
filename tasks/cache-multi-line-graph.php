@@ -7,13 +7,9 @@ $link = mysql_connect(SERVER, USER, PASSWORD);
 if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
-$interval = 1;
-//echo 'Connected successfully';
-if(isset($_GET['interval'])){
-	$interval = $_GET['interval'];
-}
+
 $db_found = mysql_select_db("Weather");
-     $myquery = "SELECT * FROM observations WHERE date >= now() - INTERVAL 6 MONTH ORDER BY id";
+     $myquery = "SELECT * FROM observations WHERE date >= now() - INTERVAL 1 HOUR ORDER BY id";
 $query = mysql_query($myquery);
 
 while($r = mysql_fetch_array($query)) {   
