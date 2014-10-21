@@ -1,5 +1,7 @@
 <?php
-include("config.php");
+$taskLocation =  realpath(dirname(__FILE__));
+chdir($taskLocation );
+include("../config.php");
 //date_default_timezone_get ();
 $link = mysql_connect(SERVER, USER, PASSWORD);
 if (!$link) {
@@ -24,7 +26,7 @@ if (!$result) {
 }
 $daysoftheweek = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
 
-$file = file_get_contents("barGraphData.template.json");
+$file = file_get_contents("templates/barGraphData.template.json");
 while($r = mysql_fetch_array($result)) {
     switch($r['day']){
         case  'Monday' :
@@ -70,6 +72,6 @@ while($r = mysql_fetch_array($result)) {
         $file = preg_replace('/%[A-Z]*%/', '0', $file);
         
         
-        file_put_contents('barGraphData.json', $file);        
+        file_put_contents('data/barGraphData.json', $file);        
 //echo $file;
 ?>

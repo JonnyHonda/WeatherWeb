@@ -1,5 +1,7 @@
 <?php
-include("config.php");
+$taskLocation =  realpath(dirname(__FILE__));
+chdir($taskLocation );
+include("../config.php");
 
 $link = mysql_connect(SERVER, USER, PASSWORD);
 if (!$link) {
