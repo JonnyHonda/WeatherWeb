@@ -1,6 +1,49 @@
 
 //var chart;
 $(document).ready(function () {
+    $.getJSON('tasks/data/cache-daily-average-temeratures-for-week-as-Json.json', function (json) {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'morris-bar-chart',
+                type:'column'
+            },
+            title: {
+                    text: '',
+                //    x: -20 //center  
+            },
+            subtitle: {
+                //    text: 'Various temperatures recorded in the garden.',
+                //    x: -20
+            },
+            xAxis: {
+                categories: [
+                    'Monday',
+                    'Tueday',
+                    'Wednesday',
+                    'Thusday',
+                    'Friday',
+                    'Saturday',
+                    'Sunday'
+                ]
+            },
+             yAxis: {
+                title: {
+                    text: "Temp in °C"
+                }
+            },
+            series: [{
+                    name: 'This Week',
+                    data: json.this_week
+
+                }, {
+                    name: 'Last Week',
+                    data: json.last_week
+
+                }],
+        });
+    });
+
+
     $.getJSON('tasks/data/cache-multi-line-graph.json', function (json) {
         chart = new Highcharts.StockChart({
             chart: {
@@ -11,12 +54,12 @@ $(document).ready(function () {
                 zoomType: 'x'
             },
             title: {
-            //    text: 'Garden Temperatures',
-            //    x: -20 //center  
+                //    text: 'Garden Temperatures',
+                //    x: -20 //center  
             },
             subtitle: {
-            //    text: 'Various temperatures recorded in the garden.',
-            //    x: -20
+                //    text: 'Various temperatures recorded in the garden.',
+                //    x: -20
             },
             tooltip: {
                 backgroundColor: {
