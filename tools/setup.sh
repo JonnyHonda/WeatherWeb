@@ -6,7 +6,8 @@
 #0 9 * * *     php /var/www/html/tasks/cache-zambretti-prediction.php
 #0,30 * * * *  php /var/www/html/tasks/cache-line-graph.php
 #0,30 * * * *  php /var/www/html/tasks/cache-multi-line-graph.php
-#0,30 * * * *  php /var/www/html/tasks/cache-daily-average-for-week-as-Json
+#0,30 * * * *  php /var/www/html/tasks/cache-daily-average-for-week-as-Json.php
+#0,30 * * * *  php /var/www/html/tasks/cache-windrose-data.php
 
 #Execute each script to update cache files
 php /var/www/html/tasks/cache-table-data.php
@@ -15,3 +16,4 @@ php /var/www/html/tasks/cache-zambretti-prediction.php
 php /var/www/html/tasks/cache-line-graph.php
 php /var/www/html/tasks/cache-multi-line-graph.php
 php /var/www/html/tasks/cache-daily-average-for-week-as-Json.php
+php /var/www/html/tasks/cache-windrose-data.php
