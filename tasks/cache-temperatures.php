@@ -6,7 +6,9 @@
  * and open the template in the editor.
  */
 
-include("config.php");
+$taskLocation =  realpath(dirname(__FILE__));
+chdir($taskLocation );
+include("../config.php");
 //date_default_timezone_get ();
 $link = mysql_connect(SERVER, USER, PASSWORD);
 if (!$link) {
@@ -49,4 +51,4 @@ while($r = mysql_fetch_array($query)) {
 }
 
 $file =  json_encode($result);
-file_put_contents("cache-line-graph.json", $file);
+file_put_contents("data/cache-line-graph.json", $file);
