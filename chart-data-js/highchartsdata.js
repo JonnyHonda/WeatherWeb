@@ -5,10 +5,10 @@ $(document).ready(function () {
         chart = new Highcharts.Chart({
             chart: {
                 renderTo: 'morris-bar-chart',
-                type:'column'
+                type: 'column'
             },
             title: {
-                    text: '',
+                text: '',
                 //    x: -20 //center  
             },
             subtitle: {
@@ -26,19 +26,49 @@ $(document).ready(function () {
                     'Sunday'
                 ]
             },
-             yAxis: {
+            yAxis: {
                 title: {
                     text: "Temp in °C"
                 }
             },
+            plotOptions: {
+                column: {
+                    //   stacking: 'normal',
+                    dataLabels: {
+                        //  enabled: true,
+                        //  color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                        style: {
+                            //      textShadow: '0 0 3px black, 0 0 3px black'
+                        }
+                    }
+                }
+            },
             series: [{
                     name: 'This Week',
-                    data: json.this_week
-
+                    data: json.this_week.average,
+                    stack: 'this_week',
+                    type: 'column'
                 }, {
                     name: 'Last Week',
-                    data: json.last_week
-
+                    data: json.last_week.average,
+                    stack: 'last_week',
+                    type: 'column'
+                }, {
+                    name: 'Min Temp This Week',
+                    data: json.this_week.min_temp,
+                    type: 'spline'
+                }, {
+                    name: 'Min Temp Last Week',
+                    data: json.last_week.min_temp,
+                    type: 'spline'
+                }, {
+                    name: 'Max Temp This Week',
+                    data: json.this_week.max_temp,
+                    type: 'spline'
+                }, {
+                    name: 'Max Temp Last Week',
+                    data: json.last_week.max_temp,
+                    type: 'spline'
                 }],
         });
     });
