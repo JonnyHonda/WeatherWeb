@@ -11,13 +11,13 @@ if (!$link) {
 $db_found = mysql_select_db("Weather");
 
 $thisWeeksData = "select DAYNAME(date) as `day`, "
-        . "ROUND(AVG(grass_temp),2) as `temp` from observations WHERE WEEK (date, 1) = "
+        . "ROUND(AVG(grass_temp),2) as `temp`, max(air_temp) as max_temp,min(air_temp) as min_temp from observations WHERE WEEK (date, 1) = "
         . "WEEK(current_date, 1) - 0  "
         . "GROUP BY DAYNAME(date) "
         . "ORDER BY WEEKDAY(date);";
 
 $lastWeeksData = "select DAYNAME(date) as `day`, "
-        . "ROUND(AVG(grass_temp),2) as `temp` from observations WHERE WEEK (date, 1) = "
+        . "ROUND(AVG(grass_temp),2) as `temp`, max(air_temp) as max_temp,min(air_temp) as min_temp from observations WHERE WEEK (date, 1) = "
         . "WEEK(current_date, 1) - 1  "
         . "GROUP BY DAYNAME(date) "
         . "ORDER BY WEEKDAY(date);";  
@@ -32,7 +32,10 @@ if (!$result) {
 
 
 while($r = mysql_fetch_array($result)) {
-    $jsonarray['this_week'][] = (float)$r['temp'];
+    $jsonarray['this_week']['day'][] = $r['day'];
+    $jsonarray['this_week']['average'][] = (float)$r['temp'];
+    $jsonarray['this_week']['min_temp'][] = (float)$r['min_temp'];
+    $jsonarray['this_week']['max_temp'][] = (float)$r['max_temp'];
 }
 
 
@@ -42,7 +45,11 @@ if (!$result) {
 }
 
 while($r = mysql_fetch_array($result)) { 
-    $jsonarray['last_week'][] = (float)$r['temp'];
+    $jsonarray['last_week']['day'][] = $r['day'];
+    $jsonarray['last_week']['average'][] = (float)$r['temp'];
+    $jsonarray['last_week']['min_temp'][] = (float)$r['min_temp'];
+    $jsonarray['last_week']['max_temp'][] = (float)$r['max_temp'];
+
 }
 
 
