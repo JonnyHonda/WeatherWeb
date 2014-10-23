@@ -17,3 +17,4 @@ php /var/www/html/tasks/cache-line-graph.php
 php /var/www/html/tasks/cache-multi-line-graph.php
 php /var/www/html/tasks/cache-daily-average-for-week-as-Json.php
 php /var/www/html/tasks/cache-windrose-data.php
+php /var/www/html/tasks/cache-station-mslp-airtemp.php
