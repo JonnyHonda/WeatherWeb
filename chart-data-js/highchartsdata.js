@@ -77,8 +77,6 @@ $(document).ready(function () {
                 }],
         });
     });
-
-
     $.getJSON('tasks/data/cache-multi-line-graph.json', function (json) {
         chart = new Highcharts.StockChart({
             chart: {
@@ -161,7 +159,6 @@ $(document).ready(function () {
             ]
         });
     });
-
     $.getJSON('tasks/data/cache-station-mslp-airtemp.json', function (json) {
         chart = new Highcharts.StockChart({
             chart: {
@@ -194,7 +191,6 @@ $(document).ready(function () {
                 },
                 borderColor: 'gray',
                 borderWidth: 1,
-                
             },
             rangeSelector: {
                 selected: 0
@@ -210,7 +206,8 @@ $(document).ready(function () {
             yAxis: [{
                     title: {
                         text: "MSLP"
-                    }
+                    },
+                opposite: false
                 }, {
                     title: {
                         text: "Air Temp"
@@ -225,13 +222,17 @@ $(document).ready(function () {
                     data: json.air_temp,
                     yAxis: 1,
                     type: 'spline',
-                    valueSuffix: '°C'
+                    tooltip: {
+                        valueSuffix: ' °C'
+                    }
                 },
                 {
                     name: 'MSLP',
                     data: json.mslp,
                     type: 'spline',
-                    valueSuffix: ' mb'
+                    tooltip: {
+                        valueSuffix: ' mb'
+                    }
                 }]
         });
     });
