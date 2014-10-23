@@ -117,7 +117,7 @@
                 </ul>
                 <!-- /.navbar-top-links -->
 
-                <div class="navbar-default sidebar" role="navigation">
+                <div class="navbar-default sidebar" role="navigation" >
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
                             <li class="sidebar-search">
@@ -133,6 +133,12 @@
                             </li>
                             <li>
                                 <a class="active" href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            </li>
+                            <li>
+
+                                <?php include("tasks/data/cache-zambretti-prediction.inc.html"); ?>
+                                <!-- /.panel-body -->
+
                             </li>
                         </ul>
                     </div>
@@ -195,46 +201,12 @@
                             <!-- /.panel-body -->
                         </div>
                         <!-- /.panel -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <i class="fa fa-bar-chart-o fa-fw"></i> Air and soil temperatures
-                                <div class="pull-right">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                            Actions
-                                            <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu pull-right" role="menu">
-                                            <li><a href="#">Action</a>
-                                            </li>
-                                            <li><a href="#">Another action</a>
-                                            </li>
-                                            <li><a href="#">Something else here</a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Separated link</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.panel-heading -->
-                            <div class="panel-body">
-                                <div class="flot-chart">
-                                    <div class="flot-chart-content" id="garden-temperatures-multi-line-graph"></div>
-                                </div>
-                                <!-- div id="morris-area-chart"></div -->
-                            </div>
-                            <!-- /.panel-body -->
-                        </div>
-                        <!-- /.panel -->
+
+                        <!-- /.row -->
                     </div>
                     <!-- /.col-lg-8 -->
                     <div class="col-lg-4">
-                        <div class="panel panel-default">
-                            <?php include("tasks/data/cache-zambretti-prediction.inc.html"); ?>
-                            <!-- /.panel-body -->
-                        </div>
+
                         <!-- /.panel -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -263,6 +235,78 @@
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.col-lg-4 -->
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Air and soil temperatures
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Actions
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="#">Action</a>
+                                        </li>
+                                        <li><a href="#">Another action</a>
+                                        </li>
+                                        <li><a href="#">Something else here</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="garden-temperatures-multi-line-graph"></div>
+                            </div>
+                            <!-- div id="morris-area-chart"></div -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.row -->
+                                <div class="row">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Mean Sea Level Pressure vs Station Air Temperature
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Actions
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="#">Action</a>
+                                        </li>
+                                        <li><a href="#">Another action</a>
+                                        </li>
+                                        <li><a href="#">Something else here</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="station-mslp-airtemp"></div>
+                            </div>
+                            <!-- div id="morris-area-chart"></div -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
                 </div>
                 <!-- /.row -->
             </div>
