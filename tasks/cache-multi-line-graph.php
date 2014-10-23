@@ -9,7 +9,7 @@ if (!$link) {
 }
 
 $db_found = mysql_select_db("Weather");
-     $myquery = "SELECT * FROM observations WHERE date >= now() - INTERVAL 6 MONTH ORDER BY id";
+     $myquery = "SELECT * FROM observations WHERE date >= now() - INTERVAL 1 YEAR ORDER BY id";
 $query = mysql_query($myquery);
 
 while($r = mysql_fetch_array($query)) {   
@@ -18,7 +18,6 @@ while($r = mysql_fetch_array($query)) {
 	$phpdate = strtotime( $datetime);
 
     	$mysqldate = date("U",$phpdate) * 1000;
-
 
 	$result['air_temp'][] = array($mysqldate,(float)$r['air_temp']);
 	$result['grass_temp'][] = array($mysqldate,(float)$r['grass_temp']);
