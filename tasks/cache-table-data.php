@@ -10,8 +10,13 @@ if (!$link) {
 }
 
 $db_found = mysql_select_db("Weather");
-$myquery = "SELECT * FROM observations WHERE date >= now() - INTERVAL 5 HOUR ORDER BY id DESC";
+$myquery = "SELECT date, round(air_temp,2) as air_temp, round(grass_temp,2) as grass_temp, round(soil_temp_10,2) as soil_temp_10,"
+        . " round(soil_temp_30,2) as soil_temp_30, round(soil_temp_100,2) as soil_temp_100 "
+        . " FROM observations "
+        . " WHERE date >= now() - INTERVAL 5 HOUR ORDER BY id DESC";
+
 $query = mysql_query($myquery);
+
 $file = '<table class="table table-bordered table-hover table-striped">'
         . '<thead>'
         . '<tr>'
@@ -27,6 +32,7 @@ $file = '<table class="table table-bordered table-hover table-striped">'
         . '</tr>'
         . '</thead>'
         . '<tbody>';
+
 while ($r = mysql_fetch_array($query)) {
     $datetime = $r['date'];
     $phpdate = strtotime($datetime);
