@@ -43,6 +43,11 @@ $(document).ready(function () {
                     }
                 }
             },
+            tooltip: {
+                crosshairs: true,
+                shared: true,
+                valueSuffix: '°C'
+            },
             series: [{
                     name: 'This Week',
                     data: json.this_week.average,
@@ -105,7 +110,8 @@ $(document).ready(function () {
                     ]
                 },
                 borderColor: 'gray',
-                borderWidth: 1
+                borderWidth: 1,
+                valueSuffix: '°C'
             },
             rangeSelector: {
                 selected: 0
@@ -128,12 +134,6 @@ $(document).ready(function () {
                         color: '#808080'
                     }]
             },
-            //     tooltip: {
-            //	 formatter: function () {
-            //	 return Highcharts.dateFormat(this.series.name + "<br>%d/%m/%Y %H:%M <br>" + this.y 
-//+"°C", this.x) ;
-            //	}  
-            //  },  
             legend: {
                 enabled: true,
                 itemDistance: 50
