@@ -64,7 +64,7 @@ foreach ($directions as $direction) {
 
     foreach ($speeds as $speed) {
         $sql = "SELECT avg(windspeedmph * 0.44704) as windspeed, winddir FROM Weather.station_data "
-                . "WHERE dateutc >= now() - INTERVAL 1 WEEK and "
+                . "WHERE dateutc >= now() - INTERVAL 1 DAY and "
                 . "winddir = $direction and"
                 . "(windspeedmph * 0.44704) $speed;";
         $query = mysql_query($sql);
