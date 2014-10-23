@@ -35,12 +35,12 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-      
+
         <!-- jQuery Version 1.11.0 -->
         <script src="js/jquery-1.11.0.js"></script>
-        
+
         <!-- Highcharts Javascripts -->
-        
+
         <script src="highcharts/js/highstock.js"></script>
         <!--script src="highcharts/js/highcharts.js"></script-->
         <script src="highcharts/js/highcharts-more.js"></script>
@@ -73,7 +73,7 @@
                             <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-messages">
-                            
+
                         </ul>
                         <!-- /.dropdown-messages -->
                     </li>
@@ -93,7 +93,7 @@
                             <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-alerts">
-                            
+
                         </ul>
                         <!-- /.dropdown-alerts -->
                     </li>
@@ -180,7 +180,7 @@
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="table-responsive">
-                                                    <?php include("tasks/data/cache-table-data.inc.html"); ?>
+                                            <?php include("tasks/data/cache-table-data.inc.html"); ?>
                                         </div>
                                         <!-- /.table-responsive -->
                                     </div>
