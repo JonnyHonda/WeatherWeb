@@ -46,8 +46,10 @@
         <script src="highcharts/js/highcharts-more.js"></script>
         <script src="highcharts/js/modules/data.js"></script>
         <script src="highcharts/js/modules/exporting.js"></script>
-        <script src="chart-data-js/highchartsdata.js"></script>
-        <script src="chart-data-js/windrosedata.js"></script>
+        <script src="chart-data-js/highcharts.daily-average-temeratures-for-week.js"></script>
+	<script src="chart-data-js/highcharts.multi-line-graph.js"></script>
+	<script src="chart-data-js/highcharts.station-mslp-airtemp.js"></script>
+        <script src="chart-data-js/highcharts.windrosedata.js"></script>
     </head>
 
     <body>
