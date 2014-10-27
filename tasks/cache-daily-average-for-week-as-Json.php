@@ -10,6 +10,9 @@ if (!$link) {
 
 $db_found = mysql_select_db("Weather");
 
+/*
+ * These sqls only fetch data for a this and last week and not the past 7 days
+ */
 $thisWeeksData = "select DAYNAME(date) as `day`, "
         . "ROUND(AVG(grass_temp),2) as `temp`, max(air_temp) as max_temp,min(air_temp) as min_temp from observations WHERE WEEK (date, 1) = "
         . "WEEK(current_date, 1) - 0  "
