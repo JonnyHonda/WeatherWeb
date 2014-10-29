@@ -1,14 +1,12 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * This task downloads a remote json file of soils temps and saves it.
+ * it then load the local soild temp json file and combines them into a new json
+ * file and saves it for the remote comparison graph to use
  */
 $taskLocation = realpath(dirname(__FILE__));
 chdir($taskLocation);
 include("../config.php");
-
 $filename = "data/cr-soiltemps_all.json";
 
 $file = file_get_contents("http://www.chrisramsay.co.uk/weather-report/data/soiltemps_all.json");
