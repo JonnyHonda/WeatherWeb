@@ -18,7 +18,7 @@ $wind_rose = array("N", "NNE", "NE",
     "SSW", "SW", "WSW", 
     "W", "WNW", "NW", "NNW");
 
-$mysql = "SELECT * FROM station_data order by id desc limit 2;";
+$mysql = "SELECT * FROM station_data ORDER BY dateutc desc limit 2;";
 $query = mysql_query($mysql);
 if (!$query) die ("Problem running query");
 // if (!$query) die("Query issue\n");
