@@ -10,7 +10,10 @@ include("../config.php");
 $filename = "data/cr-soiltemps_all.json";
 
 $file = file_get_contents("http://www.chrisramsay.co.uk/weather-report/data/soiltemps_all.json");
-file_put_contents("data/cr-soiltemps_all.json",$file);
+if(strlen($file) > 0){
+    file_put_contents("data/cr-soiltemps_all.json",$file);
+}
+
 $json = file_get_contents($filename);
 
 $decoded_remote_data = json_decode($json);
