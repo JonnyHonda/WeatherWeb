@@ -24,7 +24,7 @@ $link = mysql_connect(SERVER, USER, PASSWORD);
 if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
-$db_found = mysql_select_db("Weather");
+$db_found = mysql_select_db(DATABASE);
 $windRose = array(
     0   => 'N',
     22  => 'NNE',
@@ -63,7 +63,7 @@ foreach ($directions as $direction) {
     $file .= '<td class="dir">' . $windRose[$direction] . '</td>' ."\n";
 
     foreach ($speeds as $speed) {
-        $sql = "SELECT avg(windspeedmph * 0.44704) as windspeed, winddir FROM Weather.station_data "
+        $sql = "SELECT avg(windspeedmph * 0.44704) as windspeed, winddir FROM station_data "
                 . "WHERE dateutc >= now() - INTERVAL 1 DAY and "
                 . "winddir = $direction and"
                 . "(windspeedmph * 0.44704) $speed;";

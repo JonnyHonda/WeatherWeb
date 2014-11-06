@@ -19,13 +19,13 @@ $interval = 1;
 if(isset($_GET['interval'])){
 	$interval = $_GET['interval'];
 }
-$db_found = mysql_select_db("Weather");
+$db_found = mysql_select_db(DATABASE);
      $myquery = 'SELECT DATE_FORMAT(date,"%Y-%m-%d %H:00:00") as `date`, 
 round(avg(air_temp),2) as air_temp, 
 round(avg(grass_temp),2) as grass_temp,
 round(avg(soil_temp_10),2) as soil_temp_10,
 round(avg(soil_temp_30),2) as soil_temp_30 ,
-round(avg(soil_temp_100),2) as soil_temp_100 FROM Weather.observations 
+round(avg(soil_temp_100),2) as soil_temp_100 FROM observations 
 WHERE date >= now() - INTERVAL 7 DAY GROUP BY DATE_FORMAT(date, "%d-%m-%y %H") ORDER BY date DESC;';
 $query = mysql_query($myquery);
 

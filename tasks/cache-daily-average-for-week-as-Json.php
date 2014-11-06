@@ -8,7 +8,7 @@ if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
 
-$db_found = mysql_select_db("Weather");
+$db_found = mysql_select_db(DATABASE);
 
 /*
  * These sqls only fetch data for a this and last week and not the past 7 days
@@ -17,14 +17,14 @@ $db_found = mysql_select_db("Weather");
 
 $thisWeeksData = "SELECT DAYNAME(start_date) as `day`,"
         . "avg_grass_temp as temp, min_grass_temp as min_temp, "
-        . "max_grass_temp as max_temp FROM Weather.daily_averages"
+        . "max_grass_temp as max_temp FROM daily_averages"
         . " WHERE WEEK (start_date, 1) = WEEK(current_date, 1) - 0 "
         . "GROUP BY DAYNAME(start_date) "
         . "ORDER BY WEEKDAY(start_date)";
 
 $lastWeeksData = "SELECT DAYNAME(start_date) as `day`,"
         . "avg_grass_temp as temp, min_grass_temp as min_temp, "
-        . "max_grass_temp as max_temp FROM Weather.daily_averages"
+        . "max_grass_temp as max_temp FROM daily_averages"
         . " WHERE WEEK (start_date, 1) = WEEK(current_date, 1) - 1 "
         . "GROUP BY DAYNAME(start_date) "
         . "ORDER BY WEEKDAY(start_date)";

@@ -8,7 +8,7 @@ if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
 
-$db_found = mysql_select_db("Weather");
+$db_found = mysql_select_db(DATABASE);
 
 $thisWeeksData = "select DAYNAME(date) as `day`, "
         . "ROUND(AVG(air_temp),2) as `air_temp` from observations WHERE WEEK (date, 1) = "

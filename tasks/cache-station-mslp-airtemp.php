@@ -9,7 +9,7 @@ if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
 // 
-$db_found = mysql_select_db("Weather");
+$db_found = mysql_select_db(DATABASE);
 $myquery = "SELECT dateutc, round((baromin * 33.8637526) ,2) as mslp, "
         . "round((tempf-32)/1.8,2) as air_temp FROM Weather.station_data "
         . "WHERE dateutc >= now() - INTERVAL 1 YEAR ORDER BY dateutc";

@@ -8,7 +8,7 @@ if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
 
-$db_found = mysql_select_db("Weather");
+$db_found = mysql_select_db(DATABASE);
      $myquery = "SELECT * FROM observations WHERE date >= now() - INTERVAL 1 YEAR ORDER BY id";
 $query = mysql_query($myquery);
 

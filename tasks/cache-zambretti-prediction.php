@@ -10,7 +10,7 @@ if (!$link) {
 }
 
 $in2mb = 33.8637526;
-$db_found = mysql_select_db("Weather");
+$db_found = mysql_select_db(DATABASE);
 
 $wind_rose = array("N", "NNE", "NE", 
     "ENE", "E", "ESE", 

@@ -12,7 +12,7 @@ $interval = 1;
 if(isset($_GET['interval'])){
 	$interval = $_GET['interval'];
 }
-$db_found = mysql_select_db("Weather");
+$db_found = mysql_select_db(DATABASE);
      $myquery = "SELECT * FROM observations WHERE date >= now() - INTERVAL 5 HOUR ORDER BY id DESC";
 $query = mysql_query($myquery);
 

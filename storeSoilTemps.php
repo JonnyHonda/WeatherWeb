@@ -31,7 +31,7 @@ if($soil_temp_100 == -127){
 
 
 function fetch_last_value($column){
-    $db_found = mysql_select_db("Weather");
+    $db_found = mysql_select_db(DATABASE);
     $sql = "SELECT `$column` FROM obsevations ORDER BY date DESC LIMIT 1";
     $query = mysql_query($sql);
     $r = mysql_fetch_array($query);
