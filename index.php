@@ -50,6 +50,11 @@
 	<script src="chart-data-js/highcharts.multi-line-graph.js"></script>
 	<script src="chart-data-js/highcharts.station-mslp-airtemp.js"></script>
         <script src="chart-data-js/highcharts.windrosedata.js"></script>
+        <script>
+            function doToggle(){
+               $( "#wind-rose-data").toggle(); 
+            }
+                    </script>
     </head>
 
     <body>
@@ -219,12 +224,12 @@
                             </div>
                             <div class="panel-body">
                                 <div id="container"></div>
-                                <a href="#" class="btn btn-default btn-block">View Details</a>
+                                <a class="btn btn-default btn-block" onclick="doToggle();">View Details</a>
                             </div>
                             <!-- /.panel-body -->
                         </div>
                         <!-- /.panel -->
-                        <div class="panel-body" style="display:none">
+                        <div class="panel-body" style="display:none" id="wind-rose-data">
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="table-responsive">
