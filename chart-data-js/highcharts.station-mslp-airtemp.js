@@ -34,8 +34,45 @@ $(document).ready(function () {
                 borderColor: 'gray',
                 borderWidth: 1,
             },
-            rangeSelector: {
-                selected: 0
+            rangeSelector : {
+                buttons : [{
+                    type : 'hour',
+                    count : 1,
+                    text : '1h'
+                }, {
+                    type : 'day',
+                    count : 1,
+                    text : '1D'
+                },{
+                    type : 'day',
+                    count : 7,
+                    text : '7d'
+                },{
+                    type : 'month',
+                    count : 1,
+                    text : '1m'
+                },{
+                    type : 'month',
+                    count : 3,
+                    text : '3m'
+                },{
+                    type : 'month',
+                    count : 6,
+                    text : '6m'
+                },{
+                    type : 'ytd',
+                    text : 'YTD'
+                },{
+                    type : 'year',
+                    count : 1,
+                    text : '1y'
+                },{
+                    type : 'all',
+                    count : 1,
+                    text : 'All'
+                }],
+                selected : 2,
+                inputEnabled : true
             },
             dateFormat: {
             },
