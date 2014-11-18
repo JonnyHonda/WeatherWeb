@@ -96,6 +96,13 @@ $(document).ready(function () {
                 itemDistance: 50
             },
             series: [{
+                    name: 'Local Airl Temp',
+                    data: json.local.air_temp
+                },
+                {
+                    name: 'Remote Air Temp',
+                    data: json.remote.temp_out
+                },{
                     name: 'Local 10cm Soil Temp',
                     data: json.local.soil_temp_10
                 },
