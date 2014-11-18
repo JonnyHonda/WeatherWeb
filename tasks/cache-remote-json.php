@@ -9,7 +9,7 @@ chdir($taskLocation);
 include("../config.php");
 $filename = "data/cr-soiltemps_all.json";
 
-$file = file_get_contents("http://www.chrisramsay.co.uk/weather-report/data/soiltemps_all.json");
+$file = file_get_contents("http://www.chrisramsay.co.uk/weather-report/data/soiltemps.json");
 if(strlen($file) > 0){
     file_put_contents("data/cr-soiltemps_all.json",$file);
 }
