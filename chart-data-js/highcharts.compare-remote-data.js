@@ -70,6 +70,9 @@ $(document).ready(function () {
                         count: 1,
                         text: 'All'
                     }],
+                selected: 2,
+                inputEnabled: true
+            },
             dateFormat: {
             },
             xAxis: {
@@ -98,24 +101,24 @@ $(document).ready(function () {
                 },
                 {
                     name: 'Remote 10cm Soil Temp',
-                   data: json.remote.soil_temp_10
-                   },
-                   {
+                    data: json.remote.soil_temp_10
+                },
+                {
                     name: 'Local 30cm Soil Temp',
                     data: json.local.soil_temp_30
                 },
                 {
                     name: 'Remote 30cm Soil Temp',
-                   data: json.remote.soil_temp_30
-                   },
-                   {
+                    data: json.remote.soil_temp_30
+                },
+                {
                     name: 'Local 100cm Soil Temp',
                     data: json.local.soil_temp_100
                 },
                 {
                     name: 'Remote 100cm Soil Temp',
-                   data: json.remote.soil_temp_100
-                   }
+                    data: json.remote.soil_temp_100
+                }
             ]
         });
     });
