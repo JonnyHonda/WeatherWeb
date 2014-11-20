@@ -11,7 +11,9 @@ if (!$link) {
 // 
 $db_found = mysql_select_db(DATABASE);
 $myquery = "SELECT dateutc, round((baromin * 33.8637526) ,2) as mslp, "
-        . "round((tempf-32)/1.8,2) as air_temp FROM Weather.station_data "
+        . "round((tempf-32)/1.8,2) as air_temp, "
+        . "round((dewptf-32)/1.8,2) as dew_temp "
+        . "FROM Weather.station_data "
         . "WHERE dateutc >= now() - INTERVAL 1 YEAR ORDER BY dateutc";
 $query = mysql_query($myquery);
 
@@ -23,6 +25,7 @@ while ($r = mysql_fetch_array($query)) {
     $mysqldate = date("U", $phpdate) * 1000;
 
     $result['air_temp'][] = array($mysqldate, (float) $r['air_temp']);
+    $result['dew_temp'][] = array($mysqldate, (float) $r['dew_temp']);
     $result['mslp'][] = array($mysqldate, (float) $r['mslp']);
 }
 $file = json_encode($result);
