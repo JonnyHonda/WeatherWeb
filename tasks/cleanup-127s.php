@@ -1,4 +1,6 @@
 <?php
+$taskLocation =  realpath(dirname(__FILE__));
+chdir($taskLocation );
 include ("../sanitize.inc.php");
 include("../config.php");
 $link = mysql_connect(SERVER, USER, PASSWORD);
@@ -22,7 +24,7 @@ while($r = mysql_fetch_assoc($query)) {
 //        print_r ($r);
     foreach($array_keys as $elem){
         if($r[$elem] == -127){
-           print $elem ." = $r[$elem] and id is {$r['id']}\n"; 
+ //          print $elem ." = $r[$elem] and id is {$r['id']}\n"; 
            fetch_last_value($r['id'],$elem);
            
         }
