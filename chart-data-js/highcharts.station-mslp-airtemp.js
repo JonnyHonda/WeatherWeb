@@ -89,7 +89,7 @@ $(document).ready(function () {
                 opposite: false
                 }, {
                     title: {
-                        text: "Air Temp"
+                        text: "Temp in °C"
                     }
                 }],
             legend: {
@@ -99,6 +99,15 @@ $(document).ready(function () {
             series: [{
                     name: 'Air Temp',
                     data: json.air_temp,
+                    yAxis: 1,
+                    type: 'spline',
+                    tooltip: {
+                        valueSuffix: ' °C'
+                    }
+                },
+                {
+                    name: 'Dew point Temp',
+                    data: json.dew_temp,
                     yAxis: 1,
                     type: 'spline',
                     tooltip: {
