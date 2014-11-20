@@ -18,7 +18,7 @@ php /var/www/html/tasks/cache-table-data.php
 php /var/www/html/tasks/cache-weekly-data-as-Json.php
 php /var/www/html/tasks/cache-windrose-data.php
 #php /var/www/html/tasks/cache-zambretti-prediction.php
-
+php /var/www/html/tasks/cleanup-127s.php
 
 
 
