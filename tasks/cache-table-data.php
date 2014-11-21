@@ -13,7 +13,8 @@ $db_found = mysql_select_db(DATABASE);
 $myquery = "SELECT date, round(air_temp,2) as air_temp, round(grass_temp,2) as grass_temp, round(soil_temp_10,2) as soil_temp_10,"
         . " round(soil_temp_30,2) as soil_temp_30, round(soil_temp_100,2) as soil_temp_100 "
         . " FROM observations "
-        . " WHERE date >= now() - INTERVAL 5 HOUR ORDER BY id DESC";
+        . " WHERE minute (date)= 0 and "
+        . " date >= now() - INTERVAL 5 HOUR ORDER BY id DESC";
 
 $query = mysql_query($myquery);
 

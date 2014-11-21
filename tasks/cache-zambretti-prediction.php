@@ -43,5 +43,9 @@ $file = file_get_contents("templates/cache-zambretti-prediction.template.html");
 $file = str_replace("[--image--]","{$output[1]}", $file);
 $file = str_replace("[--description--]","{$output[0]}", $file);
 $file = str_replace("[--date--]","$date", $file);
+
+$file = str_replace("[--sunrise--]",date_sunrise(time(), SUNFUNCS_RET_STRING, LAT, LONG, 90+(60/60), 0), $file);
+$file = str_replace("[--sunset--]",date_sunset(time(), SUNFUNCS_RET_STRING, LAT, LONG, 90, 0), $file);
+
 file_put_contents("data/cache-zambretti-prediction.inc.html",$file);
 
