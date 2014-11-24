@@ -92,7 +92,7 @@ $(document).ready(function () {
                     }]
             },
             legend: {
-                enabled: true,
+                //enabled: true,
                 itemDistance: 50
             },
             series: [{
