@@ -140,7 +140,10 @@ $(document).ready(function () {
         for (x = 0; x < chart.series.length; x++) {
             chart.series[x].hide();
         }
+                    chart.series[0].show();
+            chart.series[1].show();
     });
+    
     $("#air_temp").change(function () {
         if (this.checked) {
             chart.series[0].show();
