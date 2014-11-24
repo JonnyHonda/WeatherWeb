@@ -46,7 +46,7 @@
         <script src="highcharts/js/highcharts-more.js"></script>
         <script src="highcharts/js/modules/data.js"></script>
         <script src="highcharts/js/modules/exporting.js"></script>
-	<script src="chart-data-js/highcharts.compare-remote-data.js"></script>
+        <script src="chart-data-js/highcharts.compare-remote-data.js"></script>
     </head>
 
     <body>
@@ -144,7 +144,7 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Dashboard</h1>
+                        <h1 class="page-header">Comparison Dashboard</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -178,10 +178,14 @@
                             <div class="flot-chart">
                                 <div class="flot-chart-content" id="garden-temperatures-multi-line-graph"></div>
                             </div>
+                            <input type="checkbox" name="air_temp" id="air_temp" value="air_temp">Air Temperature<br>
+                            <input type="checkbox" name = "soil_temp_10" id="soil_temp_10" value="soil_temp_10">Soil temperature 10cm<br>
+                            <input type="checkbox" name = "soil_temp_30" id="soil_temp_30" value="soil_temp_30">Soil temperature 30cm<br>
+                            <input type="checkbox" name = "soil_temp_100" id="soil_temp_100" value="soil_temp_100">Soil temperature 100cm<br>
                             <!-- div id="morris-area-chart"></div -->
                         </div>
                         <!-- /.panel-body -->
-                    </div>
+                    </div>  
                     <!-- /.panel -->
                 </div>
                 <!-- /.row -->

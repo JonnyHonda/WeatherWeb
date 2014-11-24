@@ -96,14 +96,14 @@ $(document).ready(function () {
                 itemDistance: 50
             },
             series: [{
-                    name: 'Local Grass Temp',
-                    data: json.local.grass_temp
-                },
+//                    name: 'Local Grass Temp',
+//                    data: json.local.grass_temp
+//                },
    //             {
    //                 name: 'Remote Grass Temp',
    //                 data: json.remote.grass_temp
    //             },
-                {
+//                {
                     name: 'Local Air Temp',
                     data: json.local.air_temp
                 },
@@ -136,6 +136,51 @@ $(document).ready(function () {
                 }
             ]
         });
+
+        for(x=3;x < chart.series.length;x++){
+            chart.series[x].hide();
+        }
     });
+         $( "#air_temp" ).change(function() {
+         if (this.checked){
+             chart.series[0].show();
+             chart.series[1].show();
+         }else{
+             chart.series[0].hide();
+             chart.series[1].hide();
+         }
+    }); 
+    
+     $( "#soil_temp_10" ).change(function() {
+         if (this.checked){
+             chart.series[2].show();
+             chart.series[3].show();
+         }else{
+             chart.series[2].hide();
+             chart.series[3].hide();
+         }
+    });   
+ 
+         $( "#soil_temp_30" ).change(function() {
+         if (this.checked){
+             chart.series[4].show();
+             chart.series[5].show();
+         }else{
+             chart.series[4].hide();
+             chart.series[5].hide();
+         }
+    });  
+    
+         $( "#soil_temp_100" ).change(function() {
+         if (this.checked){
+             chart.series[6].show();
+             chart.series[7].show();
+         }else{
+             chart.series[6].hide();
+             chart.series[7].hide();
+         }
+    });  
+    
+    $('#air_temp').attr('checked', true);
 });
 
