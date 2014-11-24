@@ -96,7 +96,15 @@ $(document).ready(function () {
                 itemDistance: 50
             },
             series: [{
-                    name: 'Local Airl Temp',
+                    name: 'Local Grass Temp',
+                    data: json.local.grass_temp
+                },
+   //             {
+   //                 name: 'Remote Grass Temp',
+   //                 data: json.remote.grass_temp
+   //             },
+                {
+                    name: 'Local Air Temp',
                     data: json.local.air_temp
                 },
                 {
