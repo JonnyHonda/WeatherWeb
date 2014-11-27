@@ -10,7 +10,9 @@ if (!$link) {
 }
 
 $db_found = mysql_select_db(DATABASE);
-$myquery = "SELECT * FROM observations WHERE date >= now() - INTERVAL 1 YEAR ORDER BY id";
+$myquery = 'SELECT date_format(date,"%Y-%m-%d %H:%i:00") as `date`, 
+    air_temp,soil_temp_100,soil_temp_30,soil_temp_10, grass_temp  
+    FROM observations WHERE date >= now() - INTERVAL 1 YEAR ORDER BY id;';
 $query = mysql_query($myquery);
 
 while ($r = mysql_fetch_array($query)) {
@@ -28,4 +30,3 @@ while ($r = mysql_fetch_array($query)) {
 }
 $file = json_encode($result);
 file_put_contents('data/cache-multi-line-graph.json', $file);
-?>
