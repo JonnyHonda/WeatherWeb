@@ -6,3 +6,12 @@ define('SERVER', '');
 define('USER', '');
 define('PASSWORD', '');
 define('DATABASE'),'');
+
+define('REMOTE_DATA_LOCATION','http://www.chrisramsay.co.uk/weather-report/data/soiltemps.json');
+
+/*
+ * Location information
+ * Latitude - Longitude
+ */
+define('LAT', 53.298691);
+define('LONG', -0.556208);
