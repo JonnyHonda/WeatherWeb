@@ -10,7 +10,7 @@ if (!$link) {
 }
 // 
 $db_found = mysql_select_db(DATABASE);
-$myquery = "SELECT dateutc, round((baromin * 33.8637526) ,2) as mslp, "
+$myquery = "SELECT dateutc, round((baromin * 33.8637526) ,2) as pressure, "
         . "round((tempf-32)/1.8,2) as air_temp, "
         . "round((dewptf-32)/1.8,2) as dew_temp "
         . "FROM Weather.station_data "
@@ -26,8 +26,19 @@ while ($r = mysql_fetch_array($query)) {
 
     $result['air_temp'][] = array($mysqldate, (float) $r['air_temp']);
     $result['dew_temp'][] = array($mysqldate, (float) $r['dew_temp']);
-    $result['mslp'][] = array($mysqldate, (float) $r['mslp']);
+    $mslp = round(calculateMSLP(ALTITUDE, $r['pressure'] ),2);
+    $result['pressure'][] = array($mysqldate,  $r['pressure']);
+    $result['mslp'][] = array($mysqldate,  $mslp);
 }
 $file = json_encode($result);
 file_put_contents('data/cache-station-mslp-airtemp.json', $file);
+  function calculateMSLP($altitude_in_meters,$pressure_in_millibars){
+
+        $F1 = (pow(1013.25, 0.190284) * 0.0065)/288;
+        $F2 = $altitude_in_meters/pow(($pressure_in_millibars - 0.3), 0.190284);
+        $F3 = 1/0.190284;
+        $F =  pow((1 + ($F1 * $F2)), $F3);
+        return  ($pressure_in_millibars - 0.3) * $F;
+
+    }
 ?>

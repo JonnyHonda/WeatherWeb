@@ -15,3 +15,9 @@ define('REMOTE_DATA_LOCATION','http://www.chrisramsay.co.uk/weather-report/data/
  */
 define('LAT', 53.298691);
 define('LONG', -0.556208);
+
+/*
+ * Altitude in meters
+ * 
+ */
+define('ALTITUDE',62.0);
