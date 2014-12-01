@@ -26,6 +26,7 @@ while ($r = mysql_fetch_array($query)) {
     $mysqldate = date("U", $phpdate) * 1000;
 
     $result['air_temp'][] = array($mysqldate, (float) $r['air_temp']);
+    $result['dew_temp'][] = array($mysqldate, (float) $r['dew_temp']);
     $result['pressure'][] = array($mysqldate, (float) $r['pressure']);   
     $mslp = (float)round(calculateMSLP(ALTITUDE, $r['pressure'], $r['air_temp']),2);
     $result['mslp'][] = array($mysqldate,  $mslp);
