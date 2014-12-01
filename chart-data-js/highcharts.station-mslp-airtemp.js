@@ -121,6 +121,14 @@ $(document).ready(function () {
                     tooltip: {
                         valueSuffix: ' mb'
                     }
+                },
+                {
+                    name: 'Pressure',
+                    data: json.pressure,
+                    type: 'spline',
+                    tooltip: {
+                        valueSuffix: ' mb'
+                    }
                 }]
         });
     });
