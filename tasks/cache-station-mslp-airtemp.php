@@ -26,8 +26,8 @@ while ($r = mysql_fetch_array($query)) {
 
     $result['air_temp'][] = array($mysqldate, (float) $r['air_temp']);
     $result['dew_temp'][] = array($mysqldate, (float) $r['dew_temp']);
-    $mslp = round(calculateMSLP(ALTITUDE, $r['pressure'] ),2);
-    $result['pressure'][] = array($mysqldate,  $r['pressure']);
+    $result['pressure'][] = array($mysqldate, (float) $r['pressure']);
+    $mslp = (float)round(calculateMSLP(ALTITUDE, $r['pressure'] ),2);
     $result['mslp'][] = array($mysqldate,  $mslp);
 }
 $file = json_encode($result);
