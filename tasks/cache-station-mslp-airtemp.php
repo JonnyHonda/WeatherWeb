@@ -10,9 +10,9 @@ if (!$link) {
 }
 // 
 $db_found = mysql_select_db(DATABASE);
-$myquery = "SELECT dateutc, round((baromin * 33.8637526) ,2) as pressure, "
-        . "round((tempf-32)/1.8,2) as air_temp, "
-        . "round((dewptf-32)/1.8,2) as dew_temp, "
+$myquery = "SELECT dateutc, baromin as pressure, "
+        . "tempf as air_temp, "
+        . "dewptf as dew_temp, "
         . "humidity "
         . "FROM Weather.station_data "
         . "WHERE dateutc >= now() - INTERVAL 1 YEAR ORDER BY dateutc";

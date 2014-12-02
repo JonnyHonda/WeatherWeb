@@ -1,0 +1,15 @@
+In order to de-imperialise the data and the code the following tasks would nee to be performed
+
+Must do:
+Backup database
+stop the hourly update cron
+update code to to imp to metric conversion.
+update pywws template to sent metric data.
+
+run a SQL script to convert failed that contain imperial data to metric
+upload new code, 
+restart cron
+
+Other tasks:
+Rename fields in database to to metric names
+update code to use new names
