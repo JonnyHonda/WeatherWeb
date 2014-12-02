@@ -9,7 +9,6 @@ if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
 
-$in2mb = 33.8637526;
 $db_found = mysql_select_db(DATABASE);
 
 $wind_rose = array("N", "NNE", "NE", 
@@ -24,7 +23,7 @@ if (!$query) die ("Problem running query");
 // if (!$query) die("Query issue\n");
 
 $r = mysql_fetch_array($query);
-$millibars = $r['baromin'] * $in2mb;
+$millibars = $r['baromin'];
 $winddir = $r['winddir'] % 22;
 $month = date("j");
 $date =date("h:i:s A");
