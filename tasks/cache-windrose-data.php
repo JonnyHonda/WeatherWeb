@@ -63,10 +63,10 @@ foreach ($directions as $direction) {
     $file .= '<td class="dir">' . $windRose[$direction] . '</td>' ."\n";
 
     foreach ($speeds as $speed) {
-        $sql = "SELECT avg(windspeedmph * 0.44704) as windspeed, winddir FROM station_data "
+        $sql = "SELECT avg(windspeedmph) as windspeed, winddir FROM station_data "
                 . "WHERE dateutc >= now() - INTERVAL 1 DAY and "
                 . "winddir = $direction and"
-                . "(windspeedmph * 0.44704) $speed;";
+                . "(windspeedmph) $speed;";
         $query = mysql_query($sql);
         $r = mysql_fetch_array($query);
         $file .= '<td class="data">' . round($r['windspeed'],2) . '</td>' ."\n"; 
