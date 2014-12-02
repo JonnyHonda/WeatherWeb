@@ -23,17 +23,17 @@ if (!$query) die ("Problem running query");
 // if (!$query) die("Query issue\n");
 
 $r = mysql_fetch_array($query);
-$millibars = $r['baromin'];
+$millibars = $r['barom_mb'];
 $winddir = $r['winddir'] % 22;
 $month = date("j");
 $date =date("h:i:s A");
 $r = mysql_fetch_array($query);
 $trend = 0;
 
-if ($millibars - $r['baromin'] < 0){
+if ($millibars - $r['barom_mb'] < 0){
     $trend = 2;
 }
-if ($millibars - $r['baromin'] > 0){
+if ($millibars - $r['barom_mb'] > 0){
     $trend = 1;
 }
 
