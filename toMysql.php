@@ -41,7 +41,7 @@ if (!$link) {
 
 
 $db_found = mysql_select_db(DATABASE);
-$myquery = "INSERT INTO station_data (`dateutc`, `windgust_mm`, `temp_c`, "
+$myquery = "INSERT INTO station_data (`dateutc`, `windgust_ms`, `temp_c`, "
         . "`windspeed_ms`, `barom_mb`, `rain_mm`, `dailyrain_mm`, `winddir`, "
         . "`softwaretype`, `key`, `dewpt_c`, `humidity`)"
         . "values (\"$dateutc\", \"$windgust_ms\", \"$temp_c\", \"$windspeed_ms\", \"$barom_mb\",
