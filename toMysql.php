@@ -26,25 +26,25 @@ if (!$link) {
 }
 
  $dateutc = sanitize($_GET['dateutc'], SQL);
- $windgustmph = sanitize($_GET['windgustmph'], SQL);
- $tempf = sanitize($_GET['tempf'], SQL);
- $windspeedmph = sanitize($_GET['windspeedmph'], SQL);
- $baromin = sanitize($_GET['baromin'], SQL);
- $rainin = sanitize($_GET['rainin'], SQL);
- $dailyrainin = sanitize($_GET['dailyrainin'], SQL);
+ $windgust_ms = sanitize($_GET['windgust_ms'], SQL);
+ $temp_c = sanitize($_GET['temp_c'], SQL);
+ $windspeed_ms = sanitize($_GET['windspeed_ms'], SQL);
+ $barom_mb = sanitize($_GET['barom_mb'], SQL);
+ $rain_mm = sanitize($_GET['rain_mm'], SQL);
+ $dailyrain_mm = sanitize($_GET['dailyrain_mm'], SQL);
  $winddir = sanitize($_GET['winddir'], SQL);
  $softwaretype = sanitize($_GET['softwaretype'], SQL);
  $key = sanitize($_GET['key'], SQL);
- $dewptf = sanitize($_GET['dewptf'], SQL);
+ $dewpt_c = sanitize($_GET['dewpt_c'], SQL);
  $humidity = sanitize($_GET['humidity'], SQL);
 
 
 
 $db_found = mysql_select_db(DATABASE);
-$myquery = "INSERT INTO station_data (`dateutc`, `windgustmph`, `tempf`, "
-        . "`windspeedmph`, `baromin`, `rainin`, `dailyrainin`, `winddir`, "
-        . "`softwaretype`, `key`, `dewptf`, `humidity`)"
-        . "values (\"$dateutc\", \"$windgustmph\", \"$tempf\", \"$windspeedmph\", \"$baromin\",
-            \"$rainin\", \"$dailyrainin\", \"$winddir\", \"$softwaretype\", \"$key\", \"$dewptf\",\"$humidity\")";
+$myquery = "INSERT INTO station_data (`dateutc`, `windgust_mm`, `temp_c`, "
+        . "`windspeed_ms`, `barom_mb`, `rain_mm`, `dailyrain_mm`, `winddir`, "
+        . "`softwaretype`, `key`, `dewpt_c`, `humidity`)"
+        . "values (\"$dateutc\", \"$windgust_mm\", \"$tempc\", \"$windspeed_ms\", \"$barom_mb\",
+            \"$rain_mm\", \"$dailyrain_mm\", \"$winddir\", \"$softwaretype\", \"$key\", \"$dewpt_c\",\"$humidity\")";
 // echo $myquery;
 $query = mysql_query($myquery);
