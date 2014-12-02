@@ -55,7 +55,7 @@ $speeds = array(" < 0.5",
     " BETWEEN 2 and 4",
     " BETWEEN 4 and 6",
     " BETWEEN 6 and 8",
-    " BETWEEN 10 and 10",
+    " BETWEEN 8 and 10",
     " > 10");
 
 foreach ($directions as $direction) {
