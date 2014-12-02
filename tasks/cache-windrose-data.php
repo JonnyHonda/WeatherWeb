@@ -5,7 +5,7 @@ include("../config.php");
 $file = '
 <table id="freq" class="table table-bordered table-hover table-striped">
     <tr nowrap>
-        <th colspan="9" class="hdr">Table of Wind speeds (average)</th>
+        <th colspan="9" class="hdr">Table of Wind speeds (Frequency)</th>
     </tr>
     <tr nowrap>
         <th>Direction</th>
@@ -63,7 +63,7 @@ foreach ($directions as $direction) {
     $file .= '<td class="dir">' . $windRose[$direction] . '</td>' ."\n";
 
     foreach ($speeds as $speed) {
-        $sql = "SELECT avg(windspeed_ms) as windspeed, winddir FROM station_data "
+        $sql = "SELECT count(windspeed_ms) as windspeed, winddir FROM station_data "
                 . "WHERE dateutc >= now() - INTERVAL 1 DAY and "
                 . "winddir = $direction and"
                 . "(windspeed_ms) $speed;";
@@ -75,4 +75,4 @@ foreach ($directions as $direction) {
 }
 $file .= '   </table>' ."\n";
 
-file_put_contents('data/cache-windrose-data-table.inc.html', $file);
+file_put_contents('data/cache-freq-windrose-data-table.inc.html', $file);
