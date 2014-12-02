@@ -220,7 +220,7 @@
                         <!-- /.panel -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <i class="fa fa-bar-chart-o fa-fw"></i> Average wind speed (m/s)
+                                <i class="fa fa-bar-chart-o fa-fw"></i> Wind Speed Frequency (m/s)
                             </div>
                             <div class="panel-body">
                                 <div id="container"></div>
