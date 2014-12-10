@@ -233,7 +233,7 @@
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="table-responsive">
-                                        <?php include('tasks/data/cache-windrose-data-table.inc.html'); ?>
+                                        <?php include('tasks/data/cache-freq-windrose-data-table.inc.html'); ?>
                                     </div>
                                     <!-- /.table-responsive -->
                                 </div>

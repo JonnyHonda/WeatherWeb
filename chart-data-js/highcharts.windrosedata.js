@@ -53,7 +53,7 @@ $(function () {
         },
 
         tooltip: {
-            valueSuffix: 'm/s'
+            valueSuffix: '%'
         },
 
         plotOptions: {

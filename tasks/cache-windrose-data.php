@@ -57,7 +57,33 @@ $speeds = array(" < 0.5",
     " BETWEEN 6 and 8",
     " BETWEEN 8 and 10",
     " > 10");
-
+$tc = 0;
+$sql = "SELECT 100 / sum(
+(SELECT count(windspeed_ms) FROM Weather.station_data
+WHERE dateutc >= now() - INTERVAL 1 DAY AND 
+windspeed_ms < .5) + 
+(SELECT count(windspeed_ms) FROM Weather.station_data
+WHERE dateutc >= now() - INTERVAL 1 DAY AND 
+windspeed_ms BETWEEN 0.5 AND 2) +
+(SELECT count(windspeed_ms) FROM Weather.station_data
+WHERE dateutc >= now() - INTERVAL 1 DAY AND 
+windspeed_ms BETWEEN 2 AND 4) +
+(SELECT count(windspeed_ms) FROM Weather.station_data
+WHERE dateutc >= now() - INTERVAL 1 DAY AND 
+windspeed_ms BETWEEN 4 AND 6) +
+(SELECT count(windspeed_ms) FROM Weather.station_data
+WHERE dateutc >= now() - INTERVAL 1 DAY AND 
+windspeed_ms BETWEEN 6 AND 8) +
+(SELECT count(windspeed_ms) FROM Weather.station_data
+WHERE dateutc >= now() - INTERVAL 1 DAY AND 
+windspeed_ms BETWEEN 8 AND 10) +
+(SELECT count(windspeed_ms) FROM Weather.station_data
+WHERE dateutc >= now() - INTERVAL 1 DAY AND 
+windspeed_ms > 10)
+) as tc;";
+$query = mysql_query($sql);
+$r = mysql_fetch_array($query);
+$tc = $r['tc'];
 foreach ($directions as $direction) {
     $file .= '    <tr nowrap>' ."\n";
     $file .= '<td class="dir">' . $windRose[$direction] . '</td>' ."\n";
@@ -69,7 +95,7 @@ foreach ($directions as $direction) {
                 . "(windspeed_ms) $speed;";
         $query = mysql_query($sql);
         $r = mysql_fetch_array($query);
-        $file .= '<td class="data">' . round($r['windspeed'],2) . '</td>' ."\n"; 
+        $file .= '<td class="data">' . round($r['windspeed'] * $tc,2) . '</td>' ."\n"; 
     }
     $file .= '   </tr>' ."\n";
 }
