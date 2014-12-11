@@ -1,68 +1,73 @@
-$(function () {
-
-    // Parse the data from an inline table using the Highcharts Data plugin
-    $('#container').highcharts( {
-        data: {
-            table: 'freq',
-            startRow: 1,
-            endRow: 17,
-            endColumn: 7
-        },
-
-        chart: {
-            polar: true,
-            type: 'column'
-        },
-
-        title: {
-            text: ''
-        },
-
-        subtitle: {
-            text: ''
-        },
-
-        pane: {
-            size: '85%'
-        },
-
-        legend: {
-            align: 'right',
-            verticalAlign: 'top',
-            y: 100,
-            layout: 'vertical'
-        },
-
-        xAxis: {
-            tickmarkPlacement: 'on'
-        },
-
-        yAxis: {
-            min: 0,
-            endOnTick: false,
-            showLastLabel: true,
+$(document).ready(function () {
+    $.getJSON('tasks/data/cache-freq-windrose-data.json', function (json) {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                polar: true,
+                type: 'column'
+            },
             title: {
                 text: ''
             },
-            labels: {
-                formatter: function () {
-                    return this.value + '';
+            pane: {
+                startAngle: 0,
+                endAngle: 360,
+                size: '85%'
+            },
+            legend: {
+                align: 'right',
+                verticalAlign: 'top',
+                y: 100,
+                layout: 'vertical',
+                title: {
+                    text: 'Wind speed m/s'
                 }
             },
-            reversedStacks: false
-        },
-
-        tooltip: {
-            valueSuffix: '%'
-        },
-
-        plotOptions: {
-            series: {
-                stacking: 'normal',
-                shadow: false,
-                groupPadding: 0,
-                pointPlacement: 'on'
-            }
-        }
+            xAxis: {
+                type: "",
+                categories:['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW','SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'],
+                labels: {
+                    formatter: function () {
+                        return this.value + '';
+                    }
+                },
+                tickmarkPlacement: 'on'
+            },
+            yAxis: {
+                min: 0,
+                endOnTick: false,
+                showLastLabel: true,
+                title: {
+                    text: 'Average (m/s)'
+                },
+                labels: {
+                    formatter: function () {
+                        return this.value + '%';
+                    }
+                },
+                reversedStacks: false
+            },
+            plotOptions: {
+                series: {
+                    stacking: 'normal',
+                    shadow: false,
+                    groupPadding: 0,
+                    pointPlacement: 'on'
+                },
+            },
+            series: json.frequency,
+            credits:
+                {
+                    text: '',
+                    position: {
+                        align: 'left',
+                        y: -5,
+                        x: 5
+                    },
+                    style: {
+                        fontSize: '8pt'
+                    }
+                },
+        });
     });
 });
