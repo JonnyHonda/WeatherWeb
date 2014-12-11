@@ -23,6 +23,10 @@ $(document).ready(function () {
                     text: 'Wind speed m/s'
                 }
             },
+            tooltip: {
+                valueSuffix: '%'
+    
+            },
             xAxis: {
                 type: "",
                 categories:['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW','SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'],

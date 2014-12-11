@@ -33,13 +33,15 @@ $directions = array(
     '202', '225', '248', '270',
     '292', '315', '338');
 
-$speeds = array(" < 0.5",
-    " BETWEEN 0.5 and 2",
-    " BETWEEN 2 and 4",
-    " BETWEEN 4 and 6",
-    " BETWEEN 6 and 8",
-    " BETWEEN 8 and 10",
-    " > 10");
+$speeds = array(
+    array(" < 0.5"," < 0.5m/s" ),
+    array(" BETWEEN 0.5 and 2","0.5-2m/s "),
+    array(" BETWEEN 2 and 4","2-4m/s"),
+    array(" BETWEEN 4 and 6","4-6m/s"),
+    array(" BETWEEN 6 and 8","6-8m/s"),
+    array(" BETWEEN 8 and 10","8-10m/s"),
+    array(" > 10", "> 10m/s")
+        );
 $tc = 0;
 $sql = "SELECT 100 / sum(
 (SELECT count(windspeed_ms) FROM Weather.station_data
@@ -71,11 +73,11 @@ $jsonArray = array();
 foreach ($speeds as $speed) {
     $elem = array();
     foreach ($directions as $direction) {
-        $elem['name'] = $speed;
+        $elem['name'] = $speed[1];
         $sql = "SELECT count(windspeed_ms) as windspeed, winddir FROM station_data "
                 . "WHERE dateutc >= now() - INTERVAL 1 DAY and "
                 . "winddir = $direction and"
-                . "(windspeed_ms) $speed;";
+                . "(windspeed_ms) {$speed[0]};";
         $query = mysql_query($sql);
         $r = mysql_fetch_array($query);
         $elem['data'][] = round($r['windspeed'] * $tc, 2);
