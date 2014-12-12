@@ -2,7 +2,7 @@ $(document).ready(function () {
     $.getJSON('tasks/data/cache-freq-windrose-data.json', function (json) {
         chart = new Highcharts.Chart({
             chart: {
-                renderTo: 'container',
+                renderTo: 'station-windrose-frequency',
                 polar: true,
                 type: 'column'
             },

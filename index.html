@@ -16,28 +16,82 @@
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
+        <!-- jQuery Version 1.11.0 -->
+        <script src="js/jquery-1.11.0.js"></script>
+
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-        
-               <!-- jQuery Version 1.11.0 -->
-        <script src="js/jquery-1.11.0.js"></script>
+
 
         <!-- Highcharts Javascripts -->
         <script src="highcharts/js/highstock.js"></script>
         <script src="highcharts/js/highcharts-more.js"></script>
         <script src="highcharts/js/modules/data.js"></script>
         <script src="highcharts/js/modules/exporting.js"></script>
-        
+
         <!-- Chart Data scripts -->
         <script src="chart-data-js/highcharts.daily-average-temeratures-for-week.js"></script>
-	<script src="chart-data-js/highcharts.multi-line-graph.js"></script>
-	<script src="chart-data-js/highcharts.station-mslp-airtemp.js"></script>
+        <script src="chart-data-js/highcharts.multi-line-graph.js"></script>
+        <script src="chart-data-js/highcharts.rainfall-graph.js"></script>
+        <script src="chart-data-js/highcharts.station-mslp-airtemp.js"></script>
         <script src="chart-data-js/highcharts.windrosedata.js"></script>
+        <script src="chart-data-js/highcharts.wind-speed-graph.js"></script>
     </head>
 
     <body>
-<div class="" id="garden-temperatures-multi-line-graph"></div>
-<div class="" id="station-mslp-airtemp"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <section id="content" class="body">
+                        <h1 class="entry-title">Station Measurements</h1>
+
+                        <div class="entry-content">
+                            <div class="contents topic" id="contents">
+                                <p class="topic-title first">Contents</p>
+                                <ul class="simple">
+                                    <li><a class="reference internal" href="#soil-temperatures-at-different-levels" id="id1">Soil Temperatures at Different Levels</a></li>
+                                    <li><a class="reference internal" href="#air-pressure-at-station" id="id2">Air Pressure at Station</a></li>
+                                    <li><a class="reference internal" href="#rainfall-at-station" id="id3">Recorded Rainfall</a></li>
+                                    <li><a class="reference internal" href="#windrose-from-station" id="id4">Station Wind Rose</a></li>
+                                    <li><a class="reference internal" href="#windspeed-from-station" id="id5">Station Wind Speedsl</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="section" id="soil-temperatures-at-different-levels">
+                                <h2><a class="toc-backref" href="#id1">Soil Temperatures at Different Levels</a></h2>
+                                <p>Soil temperatures taken at 10cm, 30cm and 100cm every 15 minutes, compared
+                                    against the air temperature.</p>
+                                <div class="section" id="garden-temperatures-multi-line-graph"></div>
+                            </div>
+
+                            <div class="section" id="air-pressure-at-station">
+                                <h2><a class="toc-backref" href="#id2">Air Pressure at Station</a></h2>
+                                <p>Station air pressure and calculated MSLP plotted against station air temperature.</p>
+                                <div class="section" id="station-mslp-airtemp"></div>
+                            </div>
+
+                            <div class="section" id="rainfall-at-station">
+                                <h2><a class="toc-backref" href="#id3">Recorded Rainfall</a></h2>
+                                <p>Rainfall recorded by Station.</p>
+                                <div class="section" id="station-rainfall"></div>
+                            </div>
+
+                            <div class="section" id="windrose-from-station">
+                                <h2><a class="toc-backref" href="#id4">Station Wind Rose</a></h2>
+                                <p>Wind speeds in meter per second plotted as a wind rose.</p>
+                                <div class="section" id="station-windrose-frequency"></div>
+                            </div>
+
+                            <div class="section" id="windspeed-from-station">
+                                <h2><a class="toc-backref" href="#id5">Station Wind Speeds</a></h2>
+                                <p>Wind speeds in meters per second plotted against time.</p>
+                                <div class="section" id="station-windspeed"></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
     </body>
 
 </html>
