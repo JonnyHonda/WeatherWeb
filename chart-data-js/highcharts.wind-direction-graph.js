@@ -1,20 +1,12 @@
 $(document).ready(function () {
-    $.getJSON('tasks/data/cache-multi-line-graph.json', function (json) {
+    $.getJSON('tasks/data/cache-wind-speed-data.json', function (json) {
+        var yAxisCategories = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW','SW', 'WSW', 'W', 'WNW', 'NW', 'NNW']
         chart = new Highcharts.StockChart({
             chart: {
-                renderTo: 'garden-temperatures-multi-line-graph',
-                type: 'spline',
+                renderTo: 'station-wind-direction',
                 marginRight: 130,
                 marginBottom: 80,
                 zoomType: 'x'
-            },
-            title: {
-                //    text: 'Garden Temperatures',
-                //    x: -20 //center  
-            },
-            subtitle: {
-                //    text: 'Various temperatures recorded in the garden.',
-                //    x: -20
             },
             tooltip: {
                 backgroundColor: {
@@ -31,10 +23,26 @@ $(document).ready(function () {
                 },
                 borderColor: 'gray',
                 borderWidth: 1,
-                valueSuffix: '°C'
+                formatter: function () {
+                    /*
+                    Overcomes a number of little problems with turning a number
+                    into a direction. Rounds to nearest whole integer to
+                    overcome graph zoom recalculations.
+                    */
+                    var xdate = new Date(this.x)
+                    var options = {
+                        weekday: 'long', year: 'numeric', month: 'short',
+                        day: 'numeric', hour: 'numeric', minute: 'numeric'
+                    };
+                    var dateTimeFormat = new Intl.DateTimeFormat('en-GB', options).format(xdate);
+                    var fixedpoint = this.y.toFixed(0);
+                    return '<small>' + dateTimeFormat
+                        + '</small><br/><span style="color:#F3C1FF">\u25CF</span>'
+                        + ' Wind Direction: <b>' + yAxisCategories[fixedpoint]
+                        + '</b><br/>';
+                },
             },
-            
-                        rangeSelector: {
+            rangeSelector: {
                 buttons: [{
                         type: 'hour',
                         count: 1,
@@ -71,10 +79,8 @@ $(document).ready(function () {
                         count: 1,
                         text: 'All'
                     }],
-                selected: 2,
+                selected: 1,
                 inputEnabled: true
-            },
-            dateFormat: {
             },
             xAxis: {
                 type: 'datetime',
@@ -84,51 +90,39 @@ $(document).ready(function () {
             },
             yAxis: {
                 title: {
-                    text: "Temp in °C"
+                    text: "Bearing"
                 },
-                plotLines: [{
-                        value: 0,
-                        width: 1,
-                        color: '#808080'
-                    }]
+                categories: yAxisCategories,
+                min: 0,
+                minorGridLineWidth: 0,
+                gridLineWidth: 0,
+                alternateGridColor: '#F3FBFF',
+                minTickInterval: 1
             },
             legend: {
                 enabled: true,
                 itemDistance: 50
             },
+            series: [
+                {
+                    name: 'Wind Direction',
+                    data: json.idx,
+                    color: '#F3C1FF',
+                    step: true
+                },
+            ],
             credits:
-                    {
-                        text: 'Last update: ' + json.updated ,
-                        position: {
-                            align: 'left',
-                            y: -5,
-                            x: 5
-                        },
-                        style: {
-                            fontSize: '8pt'
-                        }
+                {
+                    text: 'Updated: ' + json.updated,
+                    position: {
+                        align: 'left',
+                        y: -5,
+                        x: 5
                     },
-            series: [{
-                    name: 'Air Temp',
-                    data: json.air_temp
-                },
-                {
-                    name: 'Grass Temp',
-                    data: json.grass_temp
-                },
-                {
-                    name: 'Soil Temp at 10cm',
-                    data: json.soil_temp_10
-                },
-                {
-                    name: 'Soil Temp at 30cm',
-                    data: json.soil_temp_30
-                },
-                {
-                    name: 'Soil Temp at 1m',
-                    data: json.soil_temp_100
+                    style: {
+                        fontSize: '8pt'
+                    }
                 }
-            ]
         });
     });
 });

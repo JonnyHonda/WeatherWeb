@@ -35,7 +35,10 @@
         <script src="chart-data-js/highcharts.rainfall-graph.js"></script>
         <script src="chart-data-js/highcharts.station-mslp-airtemp.js"></script>
         <script src="chart-data-js/highcharts.windrosedata.js"></script>
+        <script src="chart-data-js/highcharts.windrosegustdata.js"></script>
         <script src="chart-data-js/highcharts.wind-speed-graph.js"></script>
+        <script src="chart-data-js/highcharts.wind-direction-graph.js"></script>
+
     </head>
 
     <body>
@@ -52,8 +55,14 @@
                                     <li><a class="reference internal" href="#soil-temperatures-at-different-levels" id="id1">Soil Temperatures at Different Levels</a></li>
                                     <li><a class="reference internal" href="#air-pressure-at-station" id="id2">Air Pressure at Station</a></li>
                                     <li><a class="reference internal" href="#rainfall-at-station" id="id3">Recorded Rainfall</a></li>
-                                    <li><a class="reference internal" href="#windrose-from-station" id="id4">Station Wind Rose</a></li>
-                                    <li><a class="reference internal" href="#windspeed-from-station" id="id5">Station Wind Speedsl</a></li>
+                                    <li><a class="reference internal" href="#wind-at-station" id="id4">Wind at Station</a>
+                                        <ul>
+                                            <li><a class="reference internal" href="#wind-roses" id="id5">Wind Roses</a></li>
+                                            <li><a class="reference internal" href="#windspeed-from-station" id="id5">Station Wind Speeds</a></li>
+                                            <li><a class="reference internal" href="#wind-direction-from-station" id="id6">Station Wind Direction</a></li>
+                                        </ul>
+                                    </li>
+
                                 </ul>
                             </div>
 
@@ -76,18 +85,28 @@
                                 <div class="section" id="station-rainfall"></div>
                             </div>
 
-                            <div class="section" id="windrose-from-station">
-                                <h2><a class="toc-backref" href="#id4">Station Wind Rose</a></h2>
-                                <p>Wind speeds in meter per second plotted as a wind rose.</p>
-                                <div class="section" id="station-windrose-frequency"></div>
-                            </div>
+                            <div class="section" id="wind-at-station">
+                                <h2><a class="toc-backref" href="#id4">Wind at Station</a></h2>
+                                <div class="section" id="wind-roses">
+                                    <h3><a class="toc-backref" href="#id5">Wind Roses</a></h3>
+                                    <p>Average wind and gust direction at station - last 24 hours.</p>
+                                    <div class="col-lg-6" id="station-windrose-frequency"></div>
+                                    <div class="col-lg-6" id="station-windrose-gust-frequency"></div><p>&nbsp;</p>
+                                </div>        
 
-                            <div class="section" id="windspeed-from-station">
-                                <h2><a class="toc-backref" href="#id5">Station Wind Speeds</a></h2>
-                                <p>Wind speeds in meters per second plotted against time.</p>
-                                <div class="section" id="station-windspeed"></div>
+
+                                <div class="section" id="windspeed-from-station">
+                                    <h2><a class="toc-backref" href="#id6">Station Wind Speeds</a></h2>
+                                    <p>Wind speeds measured every 15 minutes.</p>
+                                    <div class="section" id="station-windspeed"></div>
+                                </div>
+
+                                <div class="section" id="wind-direction-from-station">
+                                    <h2><a class="toc-backref" href="#id7">Station Wind Direction</a></h2>
+                                    <p>Wind bearing measured every 15 minutes.</p>
+                                    <div class="section" id="station-wind-direction"></div>
+                                </div>
                             </div>
-                        </div>
                     </section>
                 </div>
             </div>

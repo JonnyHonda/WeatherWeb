@@ -70,7 +70,7 @@ $(document).ready(function () {
                         count: 1,
                         text: 'All'
                     }],
-                selected: 2,
+                selected: 1,
                 inputEnabled: true
             },
             dateFormat: {

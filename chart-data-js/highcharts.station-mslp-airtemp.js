@@ -96,6 +96,18 @@ $(document).ready(function () {
                 enabled: true,
                 itemDistance: 50
             },
+            credits:
+                    {
+                        text: 'Last update: ' + json.updated ,
+                        position: {
+                            align: 'left',
+                            y: -5,
+                            x: 5
+                        },
+                        style: {
+                            fontSize: '8pt'
+                        }
+                    },
             series: [{
                     name: 'Air Temp',
                     data: json.air_temp,

@@ -44,27 +44,27 @@ $speeds = array(
         );
 $tc = 0;
 $sql = "SELECT 100 / sum(
-(SELECT count(windspeed_ms) FROM Weather.station_data
+(SELECT count(windgust_ms) FROM Weather.station_data
 WHERE dateutc >= now() - INTERVAL 1 DAY AND 
-windspeed_ms < .5) + 
-(SELECT count(windspeed_ms) FROM Weather.station_data
+windgust_ms < .5) + 
+(SELECT count(windgust_ms) FROM Weather.station_data
 WHERE dateutc >= now() - INTERVAL 1 DAY AND 
-windspeed_ms BETWEEN 0.5 AND 2) +
-(SELECT count(windspeed_ms) FROM Weather.station_data
+windgust_ms BETWEEN 0.5 AND 2) +
+(SELECT count(windgust_ms) FROM Weather.station_data
 WHERE dateutc >= now() - INTERVAL 1 DAY AND 
-windspeed_ms BETWEEN 2 AND 4) +
-(SELECT count(windspeed_ms) FROM Weather.station_data
+windgust_ms BETWEEN 2 AND 4) +
+(SELECT count(windgust_ms) FROM Weather.station_data
 WHERE dateutc >= now() - INTERVAL 1 DAY AND 
-windspeed_ms BETWEEN 4 AND 6) +
-(SELECT count(windspeed_ms) FROM Weather.station_data
+windgust_ms BETWEEN 4 AND 6) +
+(SELECT count(windgust_ms) FROM Weather.station_data
 WHERE dateutc >= now() - INTERVAL 1 DAY AND 
-windspeed_ms BETWEEN 6 AND 8) +
-(SELECT count(windspeed_ms) FROM Weather.station_data
+windgust_ms BETWEEN 6 AND 8) +
+(SELECT count(windgust_ms) FROM Weather.station_data
 WHERE dateutc >= now() - INTERVAL 1 DAY AND 
-windspeed_ms BETWEEN 8 AND 10) +
-(SELECT count(windspeed_ms) FROM Weather.station_data
+windgust_ms BETWEEN 8 AND 10) +
+(SELECT count(windgust_ms) FROM Weather.station_data
 WHERE dateutc >= now() - INTERVAL 1 DAY AND 
-windspeed_ms > 10)
+windgust_ms > 10)
 ) as tc;";
 $query = mysql_query($sql);
 $r = mysql_fetch_array($query);
@@ -75,14 +75,14 @@ foreach ($speeds as $speed) {
     $elem = array();
     foreach ($directions as $direction) {
         $elem['name'] = $speed[1];
-        $sql = "SELECT count(windspeed_ms) as windspeed, winddir FROM station_data "
+        $sql = "SELECT count(windgust_ms) as windspeed, winddir FROM station_data "
                 . "WHERE dateutc >= now() - INTERVAL 1 DAY and "
                 . "winddir = $direction and"
-                . "(windspeed_ms) {$speed[0]};";
+                . "(windgust_ms) {$speed[0]};";
         $query = mysql_query($sql);
         $r = mysql_fetch_array($query);
         $elem['data'][] = round($r['windspeed'] * $tc, 2);
     }
     $jsonArray['frequency'][] = $elem;
 }
-file_put_contents("data/cache-freq-windrose-data.json", json_encode($jsonArray));
+file_put_contents("data/cache-freq-gust-windrose-data.json", json_encode($jsonArray));

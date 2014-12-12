@@ -10,7 +10,7 @@ if (!$link) {
 }
 
 $db_found = mysql_select_db(DATABASE);
-$myquery = 'SELECT dateutc, winddir, windspeed_ms, windgust_ms FROM Weather.station_data '
+$myquery = 'SELECT dateutc, winddir, winddir %16 as idx, windspeed_ms, windgust_ms FROM Weather.station_data '
         . 'WHERE dateutc >= now() - INTERVAL 1 YEAR '
         . 'order by dateutc';
 $query = mysql_query($myquery);
@@ -20,6 +20,7 @@ while ($r = mysql_fetch_array($query)) {
     $phpdate = strtotime($datetime);
     $mysqldate = date("U", $phpdate) * 1000;
     $result['winddir'][] = array($mysqldate, (float) $r['winddir']);
+    $result['idx'][] = array($mysqldate, (float) $r['idx']);
     $result['windspeed_ms'][] = array($mysqldate, (float) $r['windspeed_ms']);
     $result['windgust_ms'][] = array($mysqldate, (float) $r['windgust_ms']);
 }

@@ -1,13 +1,13 @@
 $(document).ready(function () {
-    $.getJSON('tasks/data/cache-freq-windrose-data.json', function (json) {
+    $.getJSON('tasks/data/cache-freq-gust-windrose-data.json', function (json) {
         chart = new Highcharts.Chart({
             chart: {
-                renderTo: 'station-windrose-frequency',
+                renderTo: 'station-windrose-gust-frequency',
                 polar: true,
                 type: 'column'
             },
             title: {
-                text: 'Wind Speed'
+                text: 'Wind Gust'
             },
             pane: {
                 startAngle: 0,
