@@ -69,21 +69,9 @@ $(document).ready(function () {
                     shadow: false,
                     groupPadding: 0,
                     pointPlacement: 'on'
-                },
+                }
             },
-            series: json.frequency,
-            credits:
-                {
-                    text: '',
-                    position: {
-                        align: 'left',
-                        y: -5,
-                        x: 5
-                    },
-                    style: {
-                        fontSize: '8pt'
-                    }
-                },
+            series: json.frequency
         });
     });
 });

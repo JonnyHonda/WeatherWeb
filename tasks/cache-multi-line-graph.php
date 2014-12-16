@@ -14,7 +14,7 @@ $myquery = 'SELECT date_format(date,"%Y-%m-%d %H:%i:00") as `date`,
     air_temp,soil_temp_100,soil_temp_30,soil_temp_10, grass_temp  
     FROM observations WHERE date >= now() - INTERVAL 1 YEAR ORDER BY id;';
 $query = mysql_query($myquery);
-$result['updated'] = date("d/m/Y h:j:s");
+$result['updated'] = date("d/m/Y H:i:s");
 while ($r = mysql_fetch_array($query)) {
     $datetime = $r['date'];
 

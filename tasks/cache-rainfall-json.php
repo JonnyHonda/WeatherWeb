@@ -14,7 +14,7 @@ $myquery = 'SELECT dateutc, rain_mm, dailyrain_mm FROM Weather.station_data '
         . 'WHERE dateutc >= now() - INTERVAL 1 YEAR '
         . 'order by dateutc';
 $query = mysql_query($myquery);
-$result['updated'] = date("d/m/Y h:j:s");
+$result['updated'] = date("d/m/Y H:i:s");
 while ($r = mysql_fetch_array($query)) {
     $datetime = $r['dateutc'];
     $phpdate = strtotime($datetime);

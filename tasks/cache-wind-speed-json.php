@@ -14,7 +14,7 @@ $myquery = 'SELECT dateutc, winddir, winddir %16 as idx, windspeed_ms, windgust_
         . 'WHERE dateutc >= now() - INTERVAL 1 YEAR '
         . 'order by dateutc';
 $query = mysql_query($myquery);
-$result['updated'] = date("d/m/Y h:j:s");
+$result['updated'] = date("d/m/Y H:i:s");
 while ($r = mysql_fetch_array($query)) {
     $datetime = $r['dateutc'];
     $phpdate = strtotime($datetime);

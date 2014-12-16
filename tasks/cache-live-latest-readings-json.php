@@ -10,7 +10,7 @@ if (!$link) {
 }
 
 $db_found = mysql_select_db(DATABASE);
-$result['updated'] = date("d/m/Y h:j:s");
+$result['updated'] = date("d/m/Y H:i:s");
 
 $myquery = 'SELECT max(barom_mb) as max,min(barom_mb) as min,barom_mb as current FROM Weather.station_data
 WHERE dateutc >= now() - INTERVAL 1 day;';
