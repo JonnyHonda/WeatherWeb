@@ -23,6 +23,6 @@ php /var/www/html/tasks/cache-windrose-frequency-json.php
 php /var/www/html/tasks/cache-rainfall-json.php
 php /var/www/html/tasks/cache-wind-speed-json.php
 php /var/www/html/tasks/cache-windrose-gust-frequency-json.php
-
+php /var/www/html/tasks/cache-live-latest-readings-json.php
 
 

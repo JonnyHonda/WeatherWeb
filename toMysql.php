@@ -24,7 +24,7 @@ $link = mysql_connect(SERVER, USER, PASSWORD);
 if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
-
+//print_r($_GET);
  $dateutc = sanitize($_GET['dateutc'], SQL);
  $windgust_ms = sanitize($_GET['windgust_ms'], SQL);
  $temp_c = sanitize($_GET['temp_c'], SQL);
@@ -46,5 +46,5 @@ $myquery = "INSERT INTO station_data (`dateutc`, `windgust_ms`, `temp_c`, "
         . "`softwaretype`, `key`, `dewpt_c`, `humidity`)"
         . "values (\"$dateutc\", \"$windgust_ms\", \"$temp_c\", \"$windspeed_ms\", \"$barom_mb\",
             \"$rain_mm\", \"$dailyrain_mm\", \"$winddir\", \"$softwaretype\", \"$key\", \"$dewpt_c\",\"$humidity\")";
-// echo $myquery;
+//echo $myquery;
 $query = mysql_query($myquery);
