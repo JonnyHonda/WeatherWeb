@@ -1,6 +1,5 @@
 $(document).ready(function () {
     $.getJSON('tasks/data/cache-live-readings.json', function (json) {
-            var yAxisCategories = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW','SW', 'WSW', 'W', 'WNW', 'NW', 'NNW']
         chart = new Highcharts.Chart({
             chart: {
                 renderTo: 'barometer-gauge',
@@ -68,7 +67,6 @@ $(document).ready(function () {
                     text: 'mb'
                 }
             },
-            
             credits:
                     {
                         text: 'Last update: ' + json.updated,
@@ -84,9 +82,13 @@ $(document).ready(function () {
             series: [{
                     name: 'Current',
                     // data: json.barom[0],
-                      data: json.barom.current,
-                //    dataLabels: false,
-
+                    data: json.barom.current,
+                    dataLabels: {
+                        formatter: function () {
+                            return '<span style="color:#339">' + this.y + ' mb</span><br/>' +
+                                 '<span style="color:#933">'+ json.barom.trend_text + '</span>';
+                        }
+                    },
                     tooltip: {
                         valueSuffix: ' mb'
                     }
@@ -288,7 +290,6 @@ $(document).ready(function () {
                     step: 2,
                     rotation: 'auto'
                 },
-                
                 title: {
                     text: 'm/s'
                 }
@@ -337,125 +338,118 @@ $(document).ready(function () {
 
             ]
         });
- chart4 = new Highcharts.Chart({
-
-        chart: {
-            renderTo: 'wind-direction-gauge',
-            type: 'gauge',
-            plotBackgroundColor: null,
-            plotBackgroundImage: null,
-            plotBorderWidth: 0,
-            plotShadow: false
-        },
-        
-        title: {
-            text: 'Compass'
-        },
-        
-        pane: {
-            startAngle: 0,
-            endAngle: 360,
-            background: [{
-                backgroundColor: {
-                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                    stops: [
-                        [0, '#FFF'],
-                        [1, '#333']
-                    ]
-                },
-                borderWidth: 0,
-                outerRadius: '109%'
-            }, {
-                backgroundColor: {
-                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                    stops: [
-                        [0, '#333'],
-                        [1, '#FFF']
-                    ]
-                },
-                borderWidth: 1,
-                outerRadius: '107%'
-            }, {
-                // default background
-            }, {
-                backgroundColor: '#DDD',
-                borderWidth: 0,
-                outerRadius: '105%',
-                innerRadius: '103%'
-            }]
-        },
-           
-        // the value axis
-        yAxis: {
-            min: 0,
-            max: 360,
-            
-            
-    
-            tickPixelInterval: 25,
-            tickWidth: 1,
-            tickPosition: 'outside',
-            tickLength: 20,
-            tickColor: '#999',
-            
-            labels: {
-                dataLabels: false,
-                step: 3,
-                rotation: 'auto',
-                 formatter: function () {return ""},
+        chart4 = new Highcharts.Chart({
+            chart: {
+                renderTo: 'wind-direction-gauge',
+                type: 'gauge',
+                plotBackgroundColor: null,
+                plotBackgroundImage: null,
+                plotBorderWidth: 0,
+                plotShadow: false
             },
             title: {
-                text: 'Wind direction'
+                text: 'Compass'
             },
-            plotBands: [{
-                label: {
-                    text: 'East',
-                    x: 322,
-                    y: 115
-                },
-                from: 0,
-                to: 90,
-                color: '#55BF3B' // green
-            }, {
-                label: {
-                    text: 'South',
-                    x: 180,
-                    y: 215
-                },
-                from: 90,
-                to: 180,
-                color: '#DDDF0D' // yellow
-            }, {
-                label: {
-                    text: 'West',
-                    x: 50,
-                    y: 32
-                },
-                from: 180,
-                to: 270,
-                color: '#DF5353' // red
+            pane: {
+                startAngle: 0,
+                endAngle: 360,
+                background: [{
+                        backgroundColor: {
+                            linearGradient: {x1: 0, y1: 0, x2: 0, y2: 1},
+                            stops: [
+                                [0, '#FFF'],
+                                [1, '#333']
+                            ]
+                        },
+                        borderWidth: 0,
+                        outerRadius: '109%'
+                    }, {
+                        backgroundColor: {
+                            linearGradient: {x1: 0, y1: 0, x2: 0, y2: 1},
+                            stops: [
+                                [0, '#333'],
+                                [1, '#FFF']
+                            ]
+                        },
+                        borderWidth: 1,
+                        outerRadius: '107%'
+                    }, {
+                        // default background
+                    }, {
+                        backgroundColor: '#DDD',
+                        borderWidth: 0,
+                        outerRadius: '105%',
+                        innerRadius: '103%'
+                    }]
             },
-                       {
-                label: {
-                    text: 'North',
-                    x: 185,
-                    y: -40
+            // the value axis
+            yAxis: {
+                min: 0,
+                max: 360,
+                tickPixelInterval: 25,
+                tickWidth: 1,
+                tickPosition: 'outside',
+                tickLength: 20,
+                tickColor: '#999',
+                labels: {
+                    dataLabels: false,
+                    step: 3,
+                    rotation: 'auto',
+                    formatter: function () {
+                        return ""
+                    },
                 },
-                from: 270,
-                to: 360,
-                color: '#000000' // black
-            }]        
-        },
-    
-        series: [{
-            name: 'Compass',
-            data: json.wind.direction,
-            tooltip: {
-                valueSuffix: ' direction'
-            }
-        }]
-    
-    }
-  );
+                title: {
+                    text: 'Wind direction'
+                },
+                plotBands: [{
+                        label: {
+                            text: 'East',
+                            x: 322,
+                            y: 115
+                        },
+                        from: 0,
+                        to: 90,
+                        color: '#55BF3B' // green
+                    }, {
+                        label: {
+                            text: 'South',
+                            x: 180,
+                            y: 215
+                        },
+                        from: 90,
+                        to: 180,
+                        color: '#DDDF0D' // yellow
+                    }, {
+                        label: {
+                            text: 'West',
+                            x: 50,
+                            y: 32
+                        },
+                        from: 180,
+                        to: 270,
+                        color: '#DF5353' // red
+                    },
+                    {
+                        label: {
+                            text: 'North',
+                            x: 185,
+                            y: -40
+                        },
+                        from: 270,
+                        to: 360,
+                        color: '#000000' // black
+                    }]
+            },
+            series: [{
+                    name: 'Compass',
+                    data: json.wind.direction,
+                    tooltip: {
+                        valueSuffix: ' direction'
+                    }
+                }]
+
+        }
+        );
     });
 });
