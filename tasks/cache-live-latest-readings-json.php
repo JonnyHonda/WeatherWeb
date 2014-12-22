@@ -26,6 +26,43 @@ $query = mysql_query($myquery);
 while ($r = mysql_fetch_array($query)) {
     $result['barom']['current'] = array((float) $r['current']);
 }
+// Trend
+$myquery = 'SELECT round(sum(trend.diff) ,1) as trend, count(trend.diff) as count
+from (
+	SELECT x.barom_mb as X, y.barom_mb as Y,
+		 x.barom_mb - y.barom_mb diff
+	  FROM station_data x 
+	  JOIN station_data y 
+		ON y.id < x.id
+	WHERE y.dateutc >= now() - INTERVAL 3 HOUR 
+	GROUP BY y.id) 
+as trend;';
+$query = mysql_query($myquery);
+while ($r = mysql_fetch_array($query)) {
+    $trend = (float) $r['trend'];
+    $result['barom']['trend'] = array($trend);
+    if ($trend > 6.0) {
+        $trend_text = ('rising very rapidly');
+    } else if ($trend > 3.5) {
+        $trend_text = ('rising quickly');
+    } else if ($trend > 1.5) {
+        $trend_text = ('rising');
+    } else if ($trend >= 0.1) {
+        $trend_text = ('rising slowly');
+    } else if ($trend < -6.0) {
+        $trend_text = ('falling very rapidly');
+    } else if ($trend < -3.5) {
+        $trend_text = ('falling quickly');
+    } else if ($trend < -1.5) {
+        $trend_text = ('falling');
+    } else if ($trend <= -0.1) {
+        $trend_text = ('falling slowly');
+    }else{
+    $trend_text = ('steady');
+    }
+
+    $result['barom']['trend_text'] = array($trend_text);
+}
 
 $myquery = 'SELECT max(temp_c) as max,min(temp_c) as min FROM Weather.station_data
 WHERE dateutc >= now() - INTERVAL 1 day;';
