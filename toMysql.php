@@ -24,7 +24,7 @@ $link = mysql_connect(SERVER, USER, PASSWORD);
 if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
-
+//print_r($_GET);
  $dateutc = sanitize($_GET['dateutc'], SQL);
  $windgust_ms = sanitize($_GET['windgust_ms'], SQL);
  $temp_c = sanitize($_GET['temp_c'], SQL);
