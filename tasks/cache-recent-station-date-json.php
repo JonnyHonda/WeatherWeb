@@ -10,7 +10,7 @@ if (!$link) {
 }
 
 $db_found = mysql_select_db(DATABASE);
-$myquery = "SELECT DATE_FORMAT(`dateutc`,'%d %b %d %Y %H:%i') as dateutc, 
+$myquery = "SELECT DATE_FORMAT(`dateutc`,'%d %b %Y %H:%i') as dateutc, 
      `temp_c`,`wind_chill`, `dewpt_c`,`apparent_temp`,
     `humidity`, `dailyrain_mm`,
     `compass`.`text` as winddir,`windspeed_ms`, `windgust_ms`,
