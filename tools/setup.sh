@@ -1,3 +1,4 @@
+
 #!/bin/sh 
 # Entries need in cron tab
 
@@ -24,5 +25,5 @@ php /var/www/html/tasks/cache-rainfall-json.php
 php /var/www/html/tasks/cache-wind-speed-json.php
 php /var/www/html/tasks/cache-windrose-gust-frequency-json.php
 php /var/www/html/tasks/cache-live-latest-readings-json.php
-
+php /var/www/html/tasks/cache-recent-station-date-json.php
 
