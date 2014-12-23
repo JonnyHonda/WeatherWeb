@@ -13,9 +13,10 @@ $db_found = mysql_select_db(DATABASE);
 $myquery = "SELECT DATE_FORMAT(`dateutc`,'%d %b %Y %H:%i') as dateutc, 
      `temp_c`,`wind_chill`, `dewpt_c`,`apparent_temp`,
     `humidity`, `dailyrain_mm`,
-    `compass`.`text` as winddir,`windspeed_ms`, `windgust_ms`,
+    c.`text` as winddir,`windspeed_ms`, `windgust_ms`,
     `barom_mb`, `pressure_trend` 
-    FROM `Weather`.`station_data`,`Weather`.`compass`
+    FROM `Weather`.`station_data` as std
+    inner join `Weather`.compass as c on std.winddir = c.degrees
 WHERE dateutc >= now() - INTERVAL 12 HOUR GROUP BY hour(dateutc) ORDER BY dateutc DESC;";
 
 $query = mysql_query($myquery);
