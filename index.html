@@ -84,7 +84,33 @@
 
                                 </ul>
                             </div>
-
+                            <div class="section" id="recent-station-readings">
+                                <h2><a class="toc-backref" href="#id0">Recent station readings</a></h2>
+                                <p></p>
+                                <div class="section" id="recent-station-readings-section">
+                                    <table class="table table-striped">
+                                        <tbody id="target_table_id">
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Air temp</th>
+                                                <th>Wind chill</th>
+                                                <th>Dew point</th>
+                                                <th>Feels like</th>
+                                                <th>Humidity</th>
+                                                <th>Rainfall</th>
+                                                <th>Wind direction</th>
+                                                <th>Wind speed</th>
+                                                <th>Wind gust</th>
+                                                <th>Air pressure</th>
+                                                <th>Pressure trend</th>
+                                           
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            
                             <div class="section" id="soil-temperatures-at-different-levels">
                                 <h2><a class="toc-backref" href="#id1">Soil Temperatures at Different Levels</a></h2>
                                 <p>Soil temperatures taken at 10cm, 30cm and 100cm every 15 minutes, compared
@@ -130,6 +156,20 @@
                 </div>
             </div>
         </div>
+        <script>
+        $.getJSON('tasks/data/cache-recent-station-data.json', function(data) {
+    var tbl_body = "";
+    var odd_even = false;
+    $.each(data, function() {
+        var tbl_row = "";
+        $.each(this, function(k , v) {
+            tbl_row += "<td>"+v+"</td>";
+        })
+        tbl_body += "<tr class=\""+( odd_even ? "odd" : "even")+"\">"+tbl_row+"</tr>";
+        odd_even = !odd_even;               
+    })
+    $("#target_table_id").append(tbl_body);
+});
+    </script>
     </body>
-
 </html>
