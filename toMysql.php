@@ -38,15 +38,15 @@ if (!$link) {
  $dewpt_c = sanitize($_GET['dewpt_c'], SQL);
  $humidity = sanitize($_GET['humidity'], SQL);
  $wind_chill = sanitize($_GET['wind_chill'], SQL);
- $pressure_trend = sanitize($_GET['pressure_trend'], SQL);
+ $apparent_temp = sanitize($_GET['apparent_temp'], SQL);
 
 
 
 $db_found = mysql_select_db(DATABASE);
 $myquery = "INSERT INTO station_data (`dateutc`, `windgust_ms`, `temp_c`, "
         . "`windspeed_ms`, `barom_mb`, `rain_mm`, `dailyrain_mm`, `winddir`, "
-        . "`softwaretype`, `key`, `dewpt_c`, `humidity`, `wind_chill`, `pressure_trend`)"
+        . "`softwaretype`, `key`, `dewpt_c`, `humidity`, `wind_chill`, `apparent_temp`)"
         . "values (\"$dateutc\", \"$windgust_ms\", \"$temp_c\", \"$windspeed_ms\", \"$barom_mb\",
-            \"$rain_mm\", \"$dailyrain_mm\", \"$winddir\", \"$softwaretype\", \"$key\", \"$dewpt_c\",\"$humidity\",\"$wind_chill\",\"$pressure_trend\")";
+            \"$rain_mm\", \"$dailyrain_mm\", \"$winddir\", \"$softwaretype\", \"$key\", \"$dewpt_c\",\"$humidity\",\"$wind_chill\",\"$apparent_temp\")";
 // echo $myquery;
 $query = mysql_query($myquery);
