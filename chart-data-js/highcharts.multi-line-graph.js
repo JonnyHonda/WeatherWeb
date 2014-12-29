@@ -117,6 +117,10 @@ $(document).ready(function () {
                     data: json.grass_temp
                 },
                 {
+                    name: 'Concrete Temp',
+                    data: json.concrete_temp
+                },
+                {
                     name: 'Soil Temp at 10cm',
                     data: json.soil_temp_10
                 },

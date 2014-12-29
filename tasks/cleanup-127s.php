@@ -16,10 +16,11 @@ $myquery = "SELECT * FROM observations WHERE `grass_temp` = -127 "
         . "OR `soil_temp_10` = -127 "
         . "OR `soil_temp_30` = -127 "
         . "OR `soil_temp_100` = -127 "
+        . "OR `concrete_temp` = -127 "
         . "ORDER BY date DESC";
 
 $query = mysql_query($myquery);
-$array_keys = array('air_temp','grass_temp','soil_temp_10','soil_temp_30','soil_temp_100');
+$array_keys = array('air_temp','grass_temp','soil_temp_10','soil_temp_30','soil_temp_100','concrete_temp');
 while($r = mysql_fetch_assoc($query)) { 
 //        print_r ($r);
     foreach($array_keys as $elem){
