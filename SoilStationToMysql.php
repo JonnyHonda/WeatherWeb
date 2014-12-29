@@ -30,8 +30,8 @@ if (!$link) {
 
 
 
-$db_found = mysql_select_db("Weather_Test");
-$myquery = "INSERT INTO station_data (`date`, `air_temp`, `soil_temp_100`, "
+$db_found = mysql_select_db(DATABASE);
+$myquery = "INSERT INTO observations (`date`, `air_temp`, `soil_temp_100`, "
         . "`soil_temp_30`, `concrete_temp`, `soil_temp_10`, `grass_temp`)"
         . "values (\"$date\", \"$air_temp\", \"$soil_temp_100\", \"$soil_temp_30\", \"$concrete_temp\",
             \"$soil_temp_10\", \"$grass_temp\")";
