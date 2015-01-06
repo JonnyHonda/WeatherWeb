@@ -10,7 +10,6 @@ if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
 $db_found = mysql_select_db(DATABASE);
-print DATABASE;
 
 $array_keys = array('air_temp', 'grass_temp', 'soil_temp_10', 'soil_temp_30', 'soil_temp_100', 'concrete_temp');
 
