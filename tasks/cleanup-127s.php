@@ -34,5 +34,5 @@ print $sql;
     $query = mysql_query($sql);
     $r = mysql_fetch_array($query);
     $sql = "UPDATE observations SET $column = {$r[0]} WHERE id = $id";
- // $query = mysql_query($sql);
+    $query = mysql_query($sql);
 }
