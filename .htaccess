@@ -1,28 +1,31 @@
 Order Deny,Allow
-Deny from 186.52.182.228
-Deny from 62.82.161.68 
-Deny from 118.160.212.221 
-Deny from 203.195.151.25
 Deny from 24.38.112.187
-Deny from 120.27.31.24
-Deny from 110.164.189.148
-Deny from 125.115.62.240
-Deny from 118.163.76.38
-Deny from 220.135.3.33
-Deny from 107.191.51.68
-Deny from 84.123.161.244
-Deny from 110.78.167.100
-Deny from 114.6.48.4
-Deny from 120.27.31.24
-Deny from 61.7.241.82
-Deny from 58.216.174.66
 Deny from 58.134.30.5
-Deny from 198.50.161.136
+Deny from 58.216.174.66
+Deny from 61.7.241.82
+Deny from 62.82.161.68 
+Deny from 64.246.161.190
+Deny from 66.249.93.207
 Deny from 83.230.252.253
-Deny from 218.244.150.76
-Deny from 186.95.164.75
-Deny from 114.33.76.141
+Deny from 84.123.161.244
+Deny from 107.191.51.68
 Deny from 109.169.76.121
+Deny from 110.164.189.148
+Deny from 110.78.167.100
+Deny from 114.33.76.141
+Deny from 114.6.48.4
+Deny from 118.160.212.221 
+Deny from 118.163.76.38
+Deny from 120.27.31.24
+Deny from 120.27.31.24
+Deny from 125.115.62.240
+Deny from 186.52.182.228
+Deny from 186.95.164.75
+Deny from 198.50.161.136
+Deny from 203.195.151.25
+Deny from 218.244.150.76
+Deny from 220.135.3.33
+
 
 
 
