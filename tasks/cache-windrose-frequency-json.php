@@ -86,3 +86,4 @@ foreach ($speeds as $speed) {
     $jsonArray['frequency'][] = $elem;
 }
 file_put_contents("data/cache-freq-windrose-data.json", json_encode($jsonArray));
+mysql_close($link);

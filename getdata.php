@@ -30,4 +30,4 @@ while($r = mysql_fetch_array($query)) {
 }
 
 echo json_encode($result);
-?>
+mysql_close($link);

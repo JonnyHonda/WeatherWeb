@@ -102,3 +102,4 @@ foreach ($directions as $direction) {
 $file .= '   </table>' ."\n";
 
 file_put_contents('data/cache-freq-windrose-data-table.inc.html', $file);
+mysql_close($link);

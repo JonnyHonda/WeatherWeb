@@ -50,5 +50,4 @@ while ($r = mysql_fetch_array($query)) {
 }
 $file .= "</tbody></table>";
 file_put_contents('data/cache-table-data.inc.html', $file);
-?>
-
+mysql_close($link);

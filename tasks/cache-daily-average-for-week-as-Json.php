@@ -60,6 +60,7 @@ while($r = mysql_fetch_array($result)) {
 
 
 $file =  json_encode($jsonarray);    
-file_put_contents('data/cache-daily-average-temeratures-for-week-as-Json.json', $file);        
+file_put_contents('data/cache-daily-average-temeratures-for-week-as-Json.json', $file);  
+mysql_close($link);
 //echo $file;
 ?>

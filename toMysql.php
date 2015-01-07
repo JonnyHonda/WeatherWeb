@@ -50,3 +50,4 @@ $myquery = "INSERT INTO station_data (`dateutc`, `windgust_ms`, `temp_c`, "
             \"$rain_mm\", \"$dailyrain_mm\", \"$winddir\", \"$softwaretype\", \"$key\", \"$dewpt_c\",\"$humidity\",\"$wind_chill\",\"$apparent_temp\")";
 // echo $myquery;
 $query = mysql_query($myquery);
+mysql_close($link);

@@ -26,6 +26,7 @@ $query = mysql_query($myquery);
         next($r);
     }
 }
+mysql_close($link);
 
 function fetch_last_value($id, $column) {
     $sql = "SELECT `$column` FROM observations WHERE id BETWEEN $id-10 AND $id "
