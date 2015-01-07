@@ -37,3 +37,4 @@ $myquery = "INSERT INTO observations (`date`, `air_temp`, `soil_temp_100`, "
             \"$soil_temp_10\", \"$grass_temp\")";
 //echo $myquery;
 $query = mysql_query($myquery);
+mysql_close($link);

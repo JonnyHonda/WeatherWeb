@@ -25,3 +25,4 @@ $combined_array['local'] = $decoded_local_data;
 
 $file = json_encode($combined_array);
 file_put_contents("data/combined-soiltemps.json", $file);
+mysql_close($link);

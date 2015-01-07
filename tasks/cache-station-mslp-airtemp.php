@@ -31,7 +31,7 @@ while ($r = mysql_fetch_array($query)) {
 }
 $file = json_encode($result);
 file_put_contents('data/cache-station-mslp-airtemp.json', $file);
-
+mysql_close($link);
   
  function calculateMSLP($local_height,$abs_press,$air_temp){
    $mslp = (1-($local_height*0.0065)/($air_temp+(0.0065*$local_height)+273.15));

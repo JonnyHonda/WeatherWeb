@@ -31,3 +31,4 @@ while ($r = mysql_fetch_array($query)) {
 }
 $file = json_encode($result);
 file_put_contents('data/cache-multi-line-graph.json', $file);
+mysql_close($link);

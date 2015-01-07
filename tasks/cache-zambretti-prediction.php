@@ -47,4 +47,4 @@ $file = str_replace("[--sunrise--]",date_sunrise(time(), SUNFUNCS_RET_STRING, LA
 $file = str_replace("[--sunset--]",date_sunset(time(), SUNFUNCS_RET_STRING, LAT, LONG, 90, 0), $file);
 
 file_put_contents("data/cache-zambretti-prediction.inc.html",$file);
-
+mysql_close($link);
