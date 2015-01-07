@@ -11,7 +11,7 @@
 #0,30 * * * *  php /var/www/html/tasks/cache-windrose-data.php
 
 #Execute each script to update cache files
-php /var/www/html/tasks/cleanup-127s.php
+#php /var/www/html/tasks/cleanup-127s.php
 php /var/www/html/tasks/cache-daily-average-for-week-as-Json.php
 php /var/www/html/tasks/cache-multi-line-graph.php
 php /var/www/html/tasks/cache-remote-json.php
