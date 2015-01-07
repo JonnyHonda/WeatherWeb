@@ -29,7 +29,7 @@ $query = mysql_query($myquery);
 
 function fetch_last_value($id, $column) {
     $sql = "SELECT `$column` FROM observations WHERE id BETWEEN $id-10 AND $id "
-            . "AND `$column` != -127 ORDER BY RAND()"
+            . "AND `$column` != -127 ORDER id DESC"
             . "  LIMIT 1";
     $query = mysql_query($sql);
     $r = mysql_fetch_array($query);
