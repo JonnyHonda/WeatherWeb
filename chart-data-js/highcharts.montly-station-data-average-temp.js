@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $.getJSON('tasks/data/cache-monthly-station-data-average-temp.json', function (json) {
-        chart = new Highcharts.StockChart({
+        chart = new Highcharts.Chart({
             chart: {
                 renderTo: 'monthly-averages',
                 type: 'spline',
