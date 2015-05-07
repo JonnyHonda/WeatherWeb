@@ -16,11 +16,11 @@ $db_found = mysql_select_db(DATABASE);
 
 
 $thisMonthsRangeData = "SELECT date, round(min(grass_temp),2) as min_temp, round(max(grass_temp),2) as max_temp  from observations
-WHERE month(date) = month(now())
+WHERE month(date) = month(now()) AND year(date) = year(now())
 group by day(date)";
 
 $thisMonthsAverageData = "SELECT date, round(avg(grass_temp),2) as temp  from observations
-WHERE month(date) = month(now())
+WHERE month(date) = month(now()) AND year(date) = year(now())
 group by day(date)";
 
 $jsonarray = array();
