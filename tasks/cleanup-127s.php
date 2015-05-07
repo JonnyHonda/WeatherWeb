@@ -31,7 +31,7 @@ function fetch_last_value($id, $column) {
     $sql = "SELECT `$column` FROM observations WHERE id BETWEEN $id-10 AND $id "
             . "AND `$column` != -127 ORDER by id DESC"
             . "  LIMIT 1";
-print $sql;
+ //print $sql;
     $query = mysql_query($sql);
     $r = mysql_fetch_array($query);
     $sql = "UPDATE observations SET $column = {$r[0]} WHERE id = $id";
