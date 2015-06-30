@@ -2,7 +2,7 @@ $(document).ready(function () {
     $.getJSON('tasks/data/cache-multi-line-graph.json', function (json) {
         chart = new Highcharts.StockChart({
             chart: {
-                renderTo: 'ground-temperatures',
+                renderTo: 'garden-temperatures-multi-line-graph',
                 type: 'spline',
                 marginRight: 130,
                 marginBottom: 80,
@@ -109,14 +109,19 @@ $(document).ready(function () {
                         }
                     },
             series: [{
-                    name: 'Grass Temp',
-                    data: json.grass_temp,
-			color: '#5CD65C'
+                    name: 'Soil Temp at 10cm',
+                    data: json.soil_temp_10,
+			color: '#D6AD99'
                 },
                 {
-                    name: 'Concrete Temp',
-                    data: json.concrete_temp,
-			color: '#6986A2'
+                    name: 'Soil Temp at 30cm',
+                    data: json.soil_temp_30,
+			color: '#A34719'
+                },
+                {
+                    name: 'Soil Temp at 1m',
+                    data: json.soil_temp_100,
+		 color: '#6B2400'
                 }
             ]
         });
