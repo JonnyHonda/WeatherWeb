@@ -182,5 +182,5 @@ while ($r = mysql_fetch_array($query)) {
 
 //print_r($meteogram);
 //echo json_encode($meteogram);
-file_put_contents('data/example.json', json_encode($meteogram));
+file_put_contents('data/cache-meteogram.json', json_encode($meteogram));
 mysql_close($link);

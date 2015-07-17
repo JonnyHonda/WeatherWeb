@@ -1,3 +1,10 @@
 /nbproject/private/
 config.php
 /tasks/data/*
+/css/old_files/
+/old_files/
+/template.html
+/example.html
+/chart-data-js/old_files/
+/tasks/old_files/
+/highcharts/old_files/
