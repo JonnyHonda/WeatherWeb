@@ -10,14 +10,21 @@ if (!$link) {
 }
 
 $db_found = mysql_select_db(DATABASE);
-$myquery = "SELECT DATE_FORMAT(`dateutc`,'%H:%i') as dateutc, 
+$myquery = "SELECT std.dateutc, 
+     round(`temp_c`,1),round(`wind_chill`,1), round(`dewpt_c`,1),round(`apparent_temp`,1),
+    `humidity`, round(`dailyrain_mm`,1),
+    c.`text` as winddir,round(`windspeed_ms`,1), round(`windgust_ms`,1),
+    `barom_mb`, `pressure_trend` dateutc, 
      round(`temp_c`,1),round(`wind_chill`,1), round(`dewpt_c`,1),round(`apparent_temp`,1),
     `humidity`, round(`dailyrain_mm`,1),
     c.`text` as winddir,round(`windspeed_ms`,1), round(`windgust_ms`,1),
     `barom_mb`, `pressure_trend` 
-    FROM `Weather`.`station_data` as std
-    inner join `Weather`.compass as c on std.winddir = c.degrees
-WHERE dateutc >= now() - INTERVAL 12 HOUR GROUP BY hour(dateutc) ORDER BY dateutc DESC;";
+
+FROM Weather.station_data as std 
+inner join `Weather`.compass as c on std.winddir = c.degrees
+WHERE std.dateutc >= now() - INTERVAL 12 HOUR  
+GROUP BY hour(std.dateutc)
+ORDER BY std.dateutc DESC;";
 
 $query = mysql_query($myquery);
 

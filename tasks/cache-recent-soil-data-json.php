@@ -10,7 +10,7 @@ if (!$link) {
 }
 
 $db_found = mysql_select_db(DATABASE);
-$myquery = "SELECT DATE_FORMAT(`date`,'%H:%i')as `date`, grass_temp, concrete_temp, soil_temp_10, soil_temp_30, soil_temp_100  FROM Weather.observations
+$myquery = "SELECT `date`, grass_temp, concrete_temp, soil_temp_10, soil_temp_30, soil_temp_100  FROM Weather.observations
 WHERE `date` >= now() - INTERVAL 12 HOUR GROUP BY hour(`date`) ORDER BY `date` DESC;";
 
 $query = mysql_query($myquery);
