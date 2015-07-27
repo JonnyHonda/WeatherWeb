@@ -12,7 +12,7 @@ if (!$link) {
 $db_found = mysql_select_db(DATABASE);
 $myquery = "SELECT std.dateutc as `dateutc`, 
      round(`temp_c`,1),round(`wind_chill`,1), round(`dewpt_c`,1),round(`apparent_temp`,1),
-    `humidity`, round(`dailyrain_mm`,1),
+    `humidity`, round(`rain_mm`,1), round(`dailyrain_mm`,1),
     c.`text` as winddir,round(`windspeed_ms`,1), round(`windgust_ms`,1),
     `barom_mb`, `pressure_trend`, 
      round(`temp_c`,1),round(`wind_chill`,1), round(`dewpt_c`,1),round(`apparent_temp`,1),
