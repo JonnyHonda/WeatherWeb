@@ -89,6 +89,7 @@ if (date('I')) {
 }
 $meteogram['meta']['lastupdate'] = Date("Y-m-d\TH:m:s");
 $meteogram['meta']['nextupdate'] = Date("Y-m-d\TH:m:s");
+$meteogram['meta']['datemark'] = Date("d/m/Y H:m:s");
 $meteogram['sun']['@attributes']['rise'] = Date("Y-m-d") . "T" . date_sunrise(time(), SUNFUNCS_RET_STRING, LAT, LONG, 90 + (60 / 60), 0);
 $meteogram['sun']['@attributes']['set'] = Date("Y-m-d") . "T" . date_sunset(time(), SUNFUNCS_RET_STRING, LAT, LONG, 90, 0);
 $meteogram['location']['location']['@attributes']['altitude'] = ALTITUDE;

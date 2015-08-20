@@ -221,7 +221,7 @@
                         align: 'left'
                     },
                     credits: {
-                        text: 'Updated: ' + this.json.datemark,
+                        text: 'Updated: ' + this.json.meta.datemark,
                         position: {
                             align: 'left',
                             y: -5,
