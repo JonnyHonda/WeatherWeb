@@ -48,7 +48,7 @@ while ($r = mysql_fetch_assoc($query)) {
     } else if ($trend <= -0.1) {
         $trend_text = ('falling slowly');
     } else if ($trend == 'null'){
-        $trend_text = ('');
+        $trend_text = ('steady');
     }
     else{
     $trend_text = ('steady');
