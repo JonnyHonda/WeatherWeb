@@ -174,7 +174,7 @@ while ($r = mysql_fetch_array($query)) {
     $time['windSpeed']['@attributes']['name'] = $r['beaufort'];
     $time['temperature']['@attributes']['unit'] = "celcius";
     $time['temperature']['@attributes']['value'] = $r['temperature'];
-    $time['pressure']['@attributes']['value'] = $r['pressure'];
+    $time['pressure']['@attributes']['value'] = calculateMSLP(62.5,$r['pressure'],$r['temperature']);
     $time['pressure']['@attributes']['unit'] = "hPa";
 //    print_r($time);
 //    die();
@@ -185,3 +185,10 @@ while ($r = mysql_fetch_array($query)) {
 //echo json_encode($meteogram);
 file_put_contents('data/cache-meteogram.json', json_encode($meteogram));
 mysql_close($link);
+
+ function calculateMSLP($local_height,$abs_press,$air_temp){
+   $mslp = (1-($local_height*0.0065)/($air_temp+(0.0065*$local_height)+273.15));
+   $mslp = pow($mslp,-5.275);
+   return $abs_press*$mslp;
+     
+ }
