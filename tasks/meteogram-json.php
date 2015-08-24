@@ -155,7 +155,14 @@ $time = array(
             ['unit'] => "hPa",
             ['value'] => "0"
         )
+    ),
+    ['humidity'] => array(
+        ['@attributes'] => array(
+            ['unit'] => "percent",
+            ['value'] => "0"
+        )
     )
+       
 );
 
 while ($r = mysql_fetch_array($query)) {
@@ -176,6 +183,8 @@ while ($r = mysql_fetch_array($query)) {
     $time['temperature']['@attributes']['value'] = $r['temperature'];
     $time['pressure']['@attributes']['value'] = calculateMSLP(62.5,$r['pressure'],$r['temperature']);
     $time['pressure']['@attributes']['unit'] = "hPa";
+    $time['humidity']['@attributes']['value'] = $r['humidity'];
+    $time['humidity']['@attributes']['unit'] = "percent";
 //    print_r($time);
 //    die();
     $meteogram['forecast']['tabular']['time'][] = $time;
