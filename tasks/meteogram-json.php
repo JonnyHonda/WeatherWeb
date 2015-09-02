@@ -103,7 +103,7 @@ $link = mysql_connect(SERVER, USER, PASSWORD);
 $db_found = mysql_select_db(DATABASE);
 
 $sql = "SELECT * FROM Weather.meteogram "
-        . "WHERE `from` >= now() - INTERVAL 50 HOUR GROUP BY DATE_FORMAT(`from`, \"%d-%m-%y %H:00\");";
+        . "WHERE `from` >= now() - INTERVAL 50 HOUR GROUP BY DATE_FORMAT(`from`, \"%d-%m-%y %H:00\") ORDER by `from`;";
 
 
 $query = mysql_query($sql);
