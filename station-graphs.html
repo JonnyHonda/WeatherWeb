@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Garden Weather Station</title>
+        <meta name="description" content="My garden weather station, redcording data from a Maplin WH1080 Weather station, and other sensors situated around the garden">
+        <link href="css/minimal.css" rel="stylesheet" type="text/css"/>
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+        <!-- Highcharts Javascripts -->
+        <script src="highcharts/js/highstock.js"></script>
+        <script src="highcharts/js/highcharts-more.js"></script>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+        <script src="chart-data-js/highcharts.rainfall-rate-graph.js"></script>
+        <script src="chart-data-js/highcharts.rainfall-accumulation-graph.js"></script>
+        <script src="chart-data-js/highcharts.station-mslp-airtemp.js"></script>       
+        <!-- script src="chart-data-js/highcharts.multi-line-graph.js"></script -->
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    </head>
+    <body>
+
+
+        <div class="container">
+            <header>
+                <a class="logo" href="/">Garden Weather Station</a><br /><br />
+                <nav class="float-left">
+                    <ul>
+                        <li><a href="/">Summary</a></li>
+                        <li><a href="#">Weather Station</a></li>
+                        <li><a href="#">Soil Temperatures</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="row"  id="air-pressure-at-station">
+                <h2><a class="toc-backref" href="#id2">Air Pressure at Station</a></h2>
+                <p>Station air pressure and calculated MSLP plotted against station air temperature.</p>
+                <div class="section" id="station-mslp-airtemp"></div>
+            </div>
+            <div class="row" id="rainfall-at-station">
+                <h2><a class="toc-backref" href="#id3">Recorded Rainfall Rate</a></h2>
+                <p>Rainfall Rate recorded by Station every 15 minutes.</p>
+                <div class="section" id="station-rainfall-rate"></div>
+            </div> 
+                        <div class="row" id="rainfall-at-station">
+                <h2><a class="toc-backref" href="#id3">Recorded Rainfall Accumulation</a></h2>
+                <p>Rainfall Accumulation recorded by Station every 15 minutes.</p>
+                <div class="section" id="station-rainfall-accumulation"></div>
+            </div> 
+        </div>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+{
+    "name": "vendor/weather-web",
+    "description": "Description of project WeatherWeb.",
+    "authors": [
+        {
+            "name": "jburrin",
+            "email": "jonnyb3010@gmail.com"
+        }
+    ],
+    "require": {}
+}
