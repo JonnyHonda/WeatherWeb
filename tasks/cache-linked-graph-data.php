@@ -28,12 +28,12 @@ while ($r = mysql_fetch_array($query)) {
 
     $phpdate = strtotime($datetime);
 
-   // $xdata[] = date("U", $phpdate) * 1000;
-    $xdata[] = $r['dateutc'];
-    $temp_data[] = (double)$r['temp_c'];
-    $rain_data[] = (double)$r['rain_mm'];
-    $pressure_data[] = (double)$r['barom_mb'];
-    $humidity_data[] = (int)$r['humidity'];
+    $xdata[] = date("U", $phpdate) * 1000;
+    //$xdata[] = $r['dateutc'];
+    $temp_data[] = (double) $r['temp_c'];
+    $rain_data[] = (double) $r['rain_mm'];
+    $pressure_data[] = (double) $r['barom_mb'];
+    $humidity_data[] = (int) $r['humidity'];
 }
 $result['xData'] = $xdata;
 $result['datasets'][0]['name'] = "Temperature";

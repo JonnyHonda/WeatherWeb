@@ -18,38 +18,37 @@ function syncExtremes(e) {
 
 $(document).ready(function () {
     /**
- * In order to synchronize tooltips and crosshairs, override the 
- * built-in events with handlers defined on the parent element.
- */
-$('#container').bind('mousemove touchmove', function (e) {
-    var chart,
-            point,
-            i;
+     * In order to synchronize tooltips and crosshairs, override the 
+     * built-in events with handlers defined on the parent element.
+     */
+    $('#container').bind('mousemove touchmove', function (e) {
+        var chart,
+                point,
+                i;
 
-    for (i = 0; i < Highcharts.charts.length; i++) {
-        chart = Highcharts.charts[i];
-        e = chart.pointer.normalize(e); // Find coordinates within the chart
-        point = chart.series[0].searchPoint(e, true); // Get the hovered point
+        for (i = 0; i < Highcharts.charts.length; i++) {
+            chart = Highcharts.charts[i];
+            e = chart.pointer.normalize(e); // Find coordinates within the chart
+            point = chart.series[0].searchPoint(e, true); // Get the hovered point
 
-        if (point) {
-            point.onMouseOver(); // Show the hover marker
-            chart.tooltip.refresh(point); // Show the tooltip
-            chart.xAxis[0].drawCrosshair(e, point); // Show the crosshair
+            if (point) {
+                point.onMouseOver(); // Show the hover marker
+                chart.tooltip.refresh(point); // Show the tooltip
+                chart.xAxis[0].drawCrosshair(e, point); // Show the crosshair
+            }
         }
-    }
-});
-/**
- * Override the reset function, we don't need to hide the tooltips and crosshairs.
- */
-Highcharts.Pointer.prototype.reset = function () {
-};
+    });
+    /**
+     * Override the reset function, we don't need to hide the tooltips and crosshairs.
+     */
+    Highcharts.Pointer.prototype.reset = function () {
+    };
     $.getJSON('tasks/data/cache-linked-graph-data.json', function (activity) {
         $.each(activity.datasets, function (i, dataset) {
             // Add X values
             dataset.data = Highcharts.map(dataset.data, function (val, i) {
                 return [activity.xData[i], val];
             });
-
             $('<div class="chart">')
                     .appendTo('#container')
                     .highcharts({
@@ -78,12 +77,20 @@ Highcharts.Pointer.prototype.reset = function () {
                                 setExtremes: syncExtremes
                             },
                             labels: {
-                                format: '{value}'
+                                formatter: function () {
+                                    var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+                                    var d = new Date(this.value);
+                                    var mod = d.getDate() % 10;
+                                    (mod === 1) ? ordinal = 'st' :
+                                            (mod === 2) ? ordinal = 'nd' :
+                                            (mod === 3) ? ordinal = 'rd' : ordinal = 'th';
+                                    return d.getDate() + ordinal + " " + months[d.getMonth()] + '<br />' + d.getHours() + ":" + d.getMinutes();
+                                }
                             }
                         },
                         yAxis: {
-                                min: dataset.min,
-                                max: dataset.max,
+                            min: dataset.min,
+                            max: dataset.max,
                             title: {
                                 text: null
                             }
