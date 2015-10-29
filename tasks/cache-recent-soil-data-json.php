@@ -15,7 +15,7 @@ WHERE `date` >= now() - INTERVAL 12 HOUR GROUP BY hour(`date`) ORDER BY `date` D
 
 $query = mysql_query($myquery);
 
-
+$result = array();
 while ($r = mysql_fetch_assoc($query)) {
     
     $result[] = $r;
