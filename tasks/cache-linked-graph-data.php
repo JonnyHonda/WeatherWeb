@@ -25,11 +25,8 @@ $humidity_data = array();
 
 while ($r = mysql_fetch_array($query)) {
     $datetime = $r['dateutc'];
-
     $phpdate = strtotime($datetime);
-
     $xdata[] = date("U", $phpdate) * 1000;
-    //$xdata[] = $r['dateutc'];
     $temp_data[] = (double) $r['temp_c'];
     $rain_data[] = (double) $r['rain_mm'];
     $pressure_data[] = (double) $r['barom_mb'];
@@ -40,7 +37,7 @@ $result['datasets'][0]['name'] = "Temperature";
 $result['datasets'][0]['data'] = $temp_data;
 $result['datasets'][0]['unit'] = "Deg C";
 $result['datasets'][0]['type'] = "line";
-$result['datasets'][0]['valueDecimals'] = 2;
+$result['datasets'][0]['valueDecimals'] = 1;
 
 $result['datasets'][1]['name'] = "Rain";
 $result['datasets'][1]['data'] = $rain_data;
@@ -66,7 +63,6 @@ $result['datasets'][3]['min'] = 40;
 $result['datasets'][3]['max'] = 100;
 $result['datasets'][3]['valueDecimals'] = 0;
 
-//var_dump($result);
 $file = json_encode($result);
 file_put_contents('data/cache-linked-graph-data.json', $file);
 mysql_close($link);
