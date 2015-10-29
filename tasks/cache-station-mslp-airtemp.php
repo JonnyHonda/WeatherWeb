@@ -15,7 +15,7 @@ $myquery = "SELECT dateutc, barom_mb as pressure, "
         . "dewpt_c as dew_temp, "
         . "humidity "
         . "FROM Weather.station_data "
-        . "WHERE dateutc >= now() - INTERVAL 1 YEAR ORDER BY dateutc";
+        . "WHERE dateutc >= now() - INTERVAL 3 MONTH ORDER BY dateutc";
 $query = mysql_query($myquery);
 $result['updated'] = date("d/m/Y H:i:s");
 while ($r = mysql_fetch_array($query)) {

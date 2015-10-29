@@ -66,7 +66,7 @@ $result['datasets'][3]['min'] = 40;
 $result['datasets'][3]['max'] = 100;
 $result['datasets'][3]['valueDecimals'] = 0;
 
-var_dump($result);
+//var_dump($result);
 $file = json_encode($result);
 file_put_contents('data/cache-linked-graph-data.json', $file);
 mysql_close($link);

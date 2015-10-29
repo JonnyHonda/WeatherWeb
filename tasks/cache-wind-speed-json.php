@@ -11,7 +11,7 @@ if (!$link) {
 
 $db_found = mysql_select_db(DATABASE);
 $myquery = 'SELECT dateutc, winddir, winddir %16 as idx, windspeed_ms, windgust_ms FROM Weather.station_data '
-        . 'WHERE dateutc >= now() - INTERVAL 1 YEAR '
+        . 'WHERE dateutc >= now() - INTERVAL 3 MONTH '
         . 'order by dateutc';
 $query = mysql_query($myquery);
 $result['updated'] = date("d/m/Y H:i:s");
