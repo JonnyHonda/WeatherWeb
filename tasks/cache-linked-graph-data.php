@@ -44,13 +44,13 @@ $result['datasets'][0]['valueDecimals'] = 1;
 $result['datasets'][1]['name'] = "Rain";
 $result['datasets'][1]['data'] = $rain_data;
 $result['datasets'][1]['unit'] = "mm";
-$result['datasets'][1]['type'] = "line";
+$result['datasets'][1]['type'] = "column";
 $result['datasets'][1]['valueDecimals'] = 1;
 
 $result['datasets'][2]['name'] = "Rain Accumulation";
 $result['datasets'][2]['data'] = $dailyrain_data;
 $result['datasets'][2]['unit'] = "mm";
-$result['datasets'][2]['type'] = "area";
+$result['datasets'][2]['type'] = "column";
 $result['datasets'][2]['valueDecimals'] = 1;
 
 $result['datasets'][3]['name'] = "Pressure";
