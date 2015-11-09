@@ -1,5 +1,8 @@
-$(document).ready(function () {
-    $.getJSON('tasks/data/cache-wind-speed-data.json', function (json) {
+$(document).ready(function() {
+    $.getJSON('/tasks/data/cache-wind-speed-data.json', function(json) {
+        var extremes = chart.yAxis[0].getExtremes();
+        var maxY = extremes.max;
+        var minY = extremes.min;
         chart = new Highcharts.StockChart({
             chart: {
                 renderTo: 'station-wind-speed',
@@ -7,14 +10,6 @@ $(document).ready(function () {
                 marginRight: 130,
                 marginBottom: 80,
                 zoomType: 'x'
-            },
-            title: {
-                //    text: 'Garden Temperatures',
-                //    x: -20 //center  
-            },
-            subtitle: {
-                //    text: 'Various temperatures recorded in the garden.',
-                //    x: -20
             },
             tooltip: {
                 backgroundColor: {
@@ -31,49 +26,27 @@ $(document).ready(function () {
                 },
                 borderColor: 'gray',
                 borderWidth: 1,
-                valueSuffix: 'm/s'
+                valueSuffix: ' m/s'
             },
             rangeSelector: {
+                selected: 0,
                 buttons: [{
-                        type: 'hour',
-                        count: 1,
-                        text: '1h'
-                    }, {
-                        type: 'day',
-                        count: 1,
-                        text: '1D'
-                    }, {
-                        type: 'day',
-                        count: 7,
-                        text: '7d'
-                    }, {
-                        type: 'month',
-                        count: 1,
-                        text: '1m'
-                    }, {
-                        type: 'month',
-                        count: 3,
-                        text: '3m'
-                    }, {
-                        type: 'month',
-                        count: 6,
-                        text: '6m'
-                    }, {
-                        type: 'ytd',
-                        text: 'YTD'
-                    }, {
-                        type: 'year',
-                        count: 1,
-                        text: '1y'
-                    }, {
-                        type: 'all',
-                        count: 1,
-                        text: 'All'
-                    }],
-                selected: 1,
-                inputEnabled: true
-            },
-            dateFormat: {
+                    type: 'day',
+                    count: 1,
+                    text: '1d'
+                }, {
+                    type: 'week',
+                    count: 1,
+                    text: '1w'
+                }, {
+                    type: 'month',
+                    count: 1,
+                    text: '1m'
+                }, {
+                    type: 'month',
+                    count: 3,
+                    text: '3m'
+                }]
             },
             xAxis: {
                 type: 'datetime',
@@ -89,72 +62,122 @@ $(document).ready(function () {
                 minorGridLineWidth: 0,
                 gridLineWidth: 0,
                 alternateGridColor: null,
-                plotBands: [{ // Light air
+                plotBands: [{ // BFT 0 - Calm - 0 to 1
+                    from: 0,
+                    to: 1,
+                    color: '#FFFFFF',
+                    label: {
+                        text: 'Calm (Bft 0)',
+                        style: {
+                            color: '#606060'
+                        }
+                    }
+                }, { // BFT 1 - Light air - 1 to 3
                     from: 1,
-                    to: 2,
+                    to: 3,
                     color: '#F3FBFF',
                     label: {
-                        text: 'Light air',
+                        text: 'Light air (Bft 1)',
                         style: {
                             color: '#606060'
                         }
                     }
-                }, { // Light breeze
-                    from: 2,
-                    to: 4,
+                }, { // BFT 2 - Light breeze - 3 to 5
+                    from: 3,
+                    to: 5,
                     color: '#FFFFFF',
                     label: {
-                        text: 'Light breeze',
+                        text: 'Light breeze (Bft 2)',
                         style: {
                             color: '#606060'
                         }
                     }
-                }, { // Gentle breeze
-                    from: 4,
-                    to: 6,
+                }, { // BFT 3 - Gentle breeze - 5 to 7
+                    from: 5,
+                    to: 7,
                     color: '#F3FBFF',
                     label: {
-                        text: 'Gentle breeze',
+                        text: 'Gentle breeze (Bft 3)',
                         style: {
                             color: '#606060'
                         }
                     }
-                }, { // Moderate breeze
-                    from: 6,
-                    to: 9,
+                }, { // BFT 4 - Moderate breeze - 7 to 10
+                    from: 7,
+                    to: 10,
                     color: '#FFFFFF',
                     label: {
-                        text: 'Moderate breeze',
+                        text: 'Moderate breeze (Bft 4)',
                         style: {
                             color: '#606060'
                         }
                     }
-                }, { // Fresh breeze
-                    from: 9,
-                    to: 11,
+                }, { // BFT 5 - Fresh breeze - 10 to 12
+                    from: 10,
+                    to: 12,
                     color: '#F3FBFF',
                     label: {
-                        text: 'Fresh breeze',
+                        text: 'Fresh breeze (Bft 5)',
                         style: {
                             color: '#606060'
                         }
                     }
-                }, { // Strong breeze
-                    from: 11,
-                    to: 14,
+                }, { // BFT 6 - Strong breeze - 12 to 15
+                    from: 12,
+                    to: 15,
                     color: '#FFFFFF',
                     label: {
-                        text: 'Strong breeze',
+                        text: 'Strong breeze (Bft 6)',
                         style: {
                             color: '#606060'
                         }
                     }
-                }, { // High wind
-                    from: 14,
-                    to: 17,
+                }, { // BFT 7 - Near Gale - 15 to 19
+                    from: 15,
+                    to: 19,
                     color: '#F3FBFF',
                     label: {
-                        text: 'Near gale',
+                        text: 'Near gale (Bft 7)',
+                        style: {
+                            color: '#606060'
+                        }
+                    }
+                }, { // BFT 8 - Gale - 19 to 23
+                    from: 19,
+                    to: 23,
+                    color: '#FFFFFF',
+                    label: {
+                        text: 'Gale (Bft 8)',
+                        style: {
+                            color: '#606060'
+                        }
+                    }
+                }, { // BFT 9 - Strong gale - 23 to 27
+                    from: 23,
+                    to: 27,
+                    color: '#F3FBFF',
+                    label: {
+                        text: 'Strong gale (Bft 9)',
+                        style: {
+                            color: '#606060'
+                        }
+                    }
+                }, { // BFT 10 - Storm - 27 to 31
+                    from: 27,
+                    to: 31,
+                    color: '#FFFFFF',
+                    label: {
+                        text: 'Storm (Bft 10)',
+                        style: {
+                            color: '#606060'
+                        }
+                    }
+                }, { // BFT 11 - Violent Storm - 31 +
+                    from: 31,
+                    to: maxY,
+                    color: '#FFFFFF',
+                    label: {
+                        text: 'Violent Storm (Bft 11)',
                         style: {
                             color: '#606060'
                         }
@@ -166,27 +189,26 @@ $(document).ready(function () {
                 enabled: true,
                 itemDistance: 50
             },
-            credits:
-                    {
-                        text: 'Last update: ' + json.updated ,
-                        position: {
-                            align: 'left',
-                            y: -5,
-                            x: 5
-                        },
-                        style: {
-                            fontSize: '8pt'
-                        }
-                    },
             series: [{
-                    name: 'Wind Speed',
-                    data: json.windspeed_ms
+                name: 'Gust Wind Speed',
+                data: json.windgust_ms,
+                color: '#33ADD6'
+            }, {
+                name: 'Average Wind Speed',
+                data: json.windspeed_ms,
+                color: '#4AB825',
+            }],
+            credits: {
+                text: 'Updated: ' + json.updated,
+                position: {
+                    align: 'left',
+                    y: -5,
+                    x: 5
                 },
-                {
-                    name: 'Gust Speed',
-                    data: json.windgust_ms
+                style: {
+                    fontSize: '8pt'
                 }
-            ]
+            },
         });
     });
 });
