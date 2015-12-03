@@ -1,8 +1,6 @@
 $(document).ready(function() {
     $.getJSON('/tasks/data/cache-wind-speed-data.json', function(json) {
-        var extremes = chart.yAxis[0].getExtremes();
-        var maxY = extremes.max;
-        var minY = extremes.min;
+
         chart = new Highcharts.StockChart({
             chart: {
                 renderTo: 'station-wind-speed',
@@ -210,6 +208,9 @@ $(document).ready(function() {
                 }
             },
         });
+                var extremes = chart.yAxis[0].getExtremes();
+        var maxY = extremes.max;
+        var minY = extremes.min;
     });
 });
 
