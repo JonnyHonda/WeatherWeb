@@ -210,7 +210,7 @@ $(document).ready(function() {
         });
                 var extremes = chart.yAxis[0].getExtremes();
         var maxY = extremes.max;
-        var minY = extremes.min;
+       // var minY = extremes.min;
     });
 });
 
