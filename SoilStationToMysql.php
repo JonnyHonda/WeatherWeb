@@ -31,7 +31,7 @@ if (!$link) {
 
 
 $db_found = mysql_select_db(DATABASE);
-$myquery = "INSERT INTO wifiWeather (`date`, `air_temp`, `soil_temp_100`, "
+$myquery = "INSERT INTO observations (`date`, `air_temp`, `soil_temp_100`, "
         . "`soil_temp_30`, `concrete_temp`, `soil_temp_10`, `grass_temp`)"
         . "values (\"$date\", \"$air_temp\", \"$soil_temp_100\", \"$soil_temp_30\", \"$concrete_temp\",
             \"$soil_temp_10\", \"$grass_temp\")";
