@@ -110,7 +110,13 @@ $(document).ready(function () {
             series: [
                 {
                     name: 'Daily Rain',
-                    data: json.dailyrain_mm
+                    data: json.dailyrain_mm,
+               dataGrouping: {
+                   enabled: false
+               },
+               color: '#D6D633 ',
+               step: true,
+
                 }
             ]
         });

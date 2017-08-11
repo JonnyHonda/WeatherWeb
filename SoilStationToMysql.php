@@ -38,3 +38,24 @@ $myquery = "INSERT INTO observations (`date`, `air_temp`, `soil_temp_100`, "
 //echo $myquery;
 $query = mysql_query($myquery);
 mysql_close($link);
+// Push to ElasticSearch
+
+$date= str_replace(" ","T",$date);
+$date = $date."Z";
+echo $date;
+$data = array(
+"observation_time" => "$date",
+ "temperatures" => array(
+        "grass" => (double)$grass_temp,
+        "concrete" => (double)$concrete_temp,
+        "soil_10cm" => (double)$soil_temp_10,
+        "soil_30cm" => (double)$soil_temp_30,
+        "soil_75cm" => (double)$soil_temp_100
+           )
+);
+/*
+$json_data = json_encode($data);
+
+exec("curl -sS -XPOST \"https://search-egxp-weather-data-bqyr4n75d7j66mp32q63i2mbq4.eu-west-1.es.amazonaws.com/observations/observation/\" -d'$json_data'");
+
+*/

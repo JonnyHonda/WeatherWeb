@@ -13,6 +13,7 @@ CREATE TABLE wifiWeather(
   ,humidity    INTEGER  NOT NULL
   ,wind_speed  DOUBLE NOT NULL
   ,rain_count  INTEGER  NOT NULL
+  ,light_value  INTEGER  NOT NULL
   ,epoc        INTEGER  NOT NULL
 );
  */
@@ -30,14 +31,15 @@ if (!$link) {
  $humidity = sanitize($_POST['humidity'], SQL);
  $wind_speed = sanitize($_POST['wind_speed'], SQL);
  $rain_count = sanitize($_POST['rain_count'], SQL);
- 
+$light_value = sanitize($_POST['light_value'], SQL); 
+$epoc = sanitize($_POST['epoc'], SQL); 
 
 
 $db_found = mysql_select_db(DATABASE);
 $myquery = "INSERT INTO wifiWeather (`dateutc`, `temperature`, `pressure`, "
-        . "`wind_dir`, `humidity`, `wind_speed`, `rain_count`)"
+        . "`wind_dir`, `humidity`, `wind_speed`, `rain_count`,`light_value`,`epoc`)"
         . "values (\"$dateutc\", \"$temperature\", \"$pressure\", \"$wind_dir\", \"$humidity\",
-            \"$wind_speed\", \"$rain_count\")";
+            \"$wind_speed\", \"$rain_count\", \"$light_value\", \"$epoc\")";
 //echo $myquery;
 $query = mysql_query($myquery);
 mysql_close($link);
